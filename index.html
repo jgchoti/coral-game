@@ -25,15 +25,11 @@ What would you like to do?
 (set: $HumanActivityImpact to 50)
 (set: $EconomicStability to 50)
 (set: $gov to false)
-(set: $zoned to false)</tw-passagedata><tw-passagedata pid="2" name="Understand the mission" tags="" position="550,450" size="100,100">Your mission is to manage coral reef health by deploying smart buoys and collecting real-time data on water temperature, pH levels, water clearity, and heath of coral reefs. 
+(set: $zoned to false)</tw-passagedata><tw-passagedata pid="2" name="Understand the mission" tags="" position="525,500" size="100,100">Your mission is to manage coral reef health by deploying smart buoys that collect real-time data on water temperature, pH levels, water clarity, and coral health. 
 
-Your main objectives are:
-1. **Monitor Reef Conditions**: Manage coral reef health by deploying smart buoys and collecting real-time data on water temperature, pH levels, water clearity, and heath of coral reefs. 
-2. **Zoning**: Designate areas for different activities (fishing, tourism, conservation).
-3. **Plant Heat-Tolerant Species**: Introduce species that can withstand warmer temperatures.
-4. **Manage Human Activities**: Balance tourism and fishing with conservation needs.
+This involves zoning for various activities, introducing heat-tolerant coral species, and balancing human activities to support tourism and fishing while prioritizing conservation.
 
-Once you understand your objectives, you can either
+Once you understand your objectives, you can either:
 
 [[View data]]
 [[Meet the stakeholders]]</tw-passagedata><tw-passagedata pid="3" name="View data" tags="" position="675,550" size="100,100">&lt;img src=&quot;https://img.freepik.com/premium-vector/no-data-found-empty-file-folder-concept-design-vector-illustration_620585-1698.jpg?semt=ais_hybrid&quot; alt=&quot;No Data Found&quot; style=&quot;display: block; margin: 0 auto; width:100%; max-width:400px;&quot;&gt;
@@ -42,18 +38,16 @@ You haven&#39;t deployed any smart buoys yet, so there is no real-time data avai
 
 You&#39;ll need to meet with the stakeholders, particularly the **Government Officials**, to get clearance for buoy deployment.
 
-[[Meet the stakeholders]]</tw-passagedata><tw-passagedata pid="4" name="Meet the stakeholders" tags="" position="375,450" size="100,100">You connect with the different groups whose interests influence your decisions 
-
-- **Government Officials**: Their priority is ensuring biodiversity while maintaining economic stability.
-- **Tourism Industry Leaders**: They rely on healthy reefs for sustainable dive tourism, but they are concerned about profit loss if certain areas are closed.
-- **Fishing Industry Representatives**: Healthy reefs are essential to maintaining fish populations, but they need access to fishing zones for their livelihoods.
-- **Environmental NGOs**: Focused solely on long-term coral reef recovery and tackling climate change.
+[[Meet the stakeholders]]</tw-passagedata><tw-passagedata pid="4" name="Meet the stakeholders" tags="" position="300,525" size="100,100">You connect with the different groups whose interests influence your decisions 
 
 [[Talk to Government Officials-&gt;Government Officials]]
 [[Talk to Tourism Industry Leaders]] 
 [[Talk to Fishing Industry Representatives]]
 [[Talk to Environmental NGOs]] 
-</tw-passagedata><tw-passagedata pid="5" name="Government Officials" tags="" position="125,475" size="100,100">You meet with the Government Officials, who are responsible for setting policies and regulations around marine protected areas. 
+</tw-passagedata><tw-passagedata pid="5" name="Government Officials" tags="" position="75,475" size="100,100">
+You meet with the Government Officials, who are responsible for setting policies and regulations around marine protected areas. 
+
+&#39;&#39;Government Officials&#39;&#39;: The priority is ensuring biodiversity while maintaining economic stability.
 
 The government has now cleared you to deploy the smart buoys and negotiate with the private sector stakeholders.
 
@@ -93,17 +87,15 @@ With the government’s policy guidance in place, you meet with representatives 
 Unfortunately, your attempts to collaborate with the fishing industry have not been fruitful. Should you reach out to the government for support?
  [[Meet the stakeholders]] 
   ]
-</tw-passagedata><tw-passagedata pid="10" name="Talk to Environmental NGOs" tags="" position="75,850" size="100,100">The NGOs are less concerned with short-term economics and more focused on long-term coral recovery. They are pushing for stricter protection measures.
+</tw-passagedata><tw-passagedata pid="10" name="Talk to Environmental NGOs" tags="" position="175,850" size="100,100">The NGOs are less concerned with short-term economics and more focused on long-term coral recovery. They are pushing for stricter protection measures.
 
 **NGO Leader**: &quot;The reefs are on the brink of collapse. We need to act now and reduce all human activity in these areas for recovery.&quot;
 
- [[Meet the stakeholders]]
-
-
-
-
-
-</tw-passagedata><tw-passagedata pid="11" name="Zone around popular tourist areas" tags="" position="775,800" size="100,100">You’ve created a Marine Protected Area around the most popular tourist sites. 
+(if: $gov)[
+[[Meet Other Stakeholders]]
+] (else:)[
+[[Meet the stakeholders]] 
+  ]</tw-passagedata><tw-passagedata pid="11" name="Zone around popular tourist areas" tags="" position="775,800" size="100,100">You’ve created a Marine Protected Area(red zone) around the most popular tourist sites. 
 
 - **Outcome**: The reefs are showing signs of recovery, but tourism revenues in this region are dropping. Local businesses are concerned.
 
@@ -112,7 +104,7 @@ Unfortunately, your attempts to collaborate with the fishing industry have not b
 (set: $EconomicStability to $EconomicStability - 25)
 
 [[Strategy Selection]]
-(text-colour: &quot;red&quot;)[[Proceed to the endgame-&gt;Endgame]]</tw-passagedata><tw-passagedata pid="12" name="Zone around key fishing areas" tags="" position="775,675" size="100,100">You’ve created a Marine Protected Area around fishing areas. 
+(text-colour: &quot;red&quot;)[[Proceed to the endgame-&gt;Endgame]]</tw-passagedata><tw-passagedata pid="12" name="Zone around key fishing areas" tags="" position="875,600" size="100,100">You’ve created a Marine Protected Area(red zone) around fishing areas. 
 
 - **Outcome**: Coral health improves in these zones, but local fishing industries face economic challenges. You’ll need to manage the balance between fishing and conservation.
 
@@ -123,8 +115,7 @@ Unfortunately, your attempts to collaborate with the fishing industry have not b
 [[Strategy Selection]]
 (text-colour: &quot;red&quot;)[[Proceed to the endgame-&gt;Endgame]]
 
-</tw-passagedata><tw-passagedata pid="13" name="Zone deep-water biodiversity hotspots" tags="" position="775,950" size="100,100">You’ve created a Marine Protected Area around fishing areas. 
-
+</tw-passagedata><tw-passagedata pid="13" name="Zone deep-water biodiversity hotspots" tags="" position="775,950" size="100,100">You’ve created a Marine Protected Area(red zone) around fishing areas. 
 
 **Outcome**: Coral health in these zones is rapidly improving, though the economic and human activity impact is minimal, as these areas were not heavily used by either industry.
 
@@ -136,32 +127,34 @@ Unfortunately, your attempts to collaborate with the fishing industry have not b
 (text-colour: &quot;red&quot;)[[Proceed to the endgame-&gt;Endgame]]</tw-passagedata><tw-passagedata pid="14" name="Strategy Selection" tags="" position="525,725" size="100,100">You have access to the following strategies:
 
   1. **Monitor Real-Time Data**: Use smart buoys to track water temperature, pH levels, and coral health to respond quickly to environmental changes.
-  2.**Zoning**: Create Marine Protected Areas (MPAs) where human activity is limited or prohibited to give coral reefs a chance to recover.
-  3. **Deploy Heat-Tolerant Corals**: Introduce coral species that are more resilient to high temperatures, helping reefs survive in warmer waters.
-  4. **Tourism and Fishing Management**: Balance human activities by diverting tourism and fishing away from stressed coral reefs and encouraging eco-friendly practices.
+  2. **Tourism and Fishing Management**: Balance human activities by diverting tourism and fishing away from stressed coral reefs and encouraging eco-friendly practices.
+  3. **Zoning**: Create Marine Protected Areas (MPAs) where human activity is limited or prohibited to give coral reefs a chance to recover.
+  4. **Deploy Heat-Tolerant Corals**: Introduce coral species that are more resilient to high temperatures, helping reefs survive in warmer waters.
 
 Which strategy would you like to start with?
 
 [[Monitor Real-Time Data]]
-[[Zoning Coral Reef Areas-&gt;Zoning]]
+[[Create Red Zone (No Human Activity) -&gt;RedZone]]
+[[Create Yellow Zone (Minimal Human Activity) -&gt;YellowZone]]
+[[Create Green Zone (Tourism and Fishing Allowed) -&gt;GreenZone]]
 [[Plant Heat-Tolerant Corals-&gt; HeatTolerantCorals]]
-[[Manage Tourism and Fishing-&gt;ManageHumanActivity]]
+
 
 [[Meet Stakeholders -&gt;Meet Other Stakeholders]]
-(text-colour: &quot;red&quot;)[[Proceed to the endgame-&gt;Endgame]]</tw-passagedata><tw-passagedata pid="15" name="Endgame" tags="" position="1050,900" size="100,100">After several years of managing coral reef health, it&#39;s time to review the results of your strategy.
+(text-colour: &quot;red&quot;)[[Proceed to the endgame-&gt;Endgame]]</tw-passagedata><tw-passagedata pid="15" name="Endgame" tags="" position="1225,850" size="100,100">After several years of managing coral reef health, it&#39;s time to review the results of your strategy.
 
 [[Review Results -&gt;FinalResults]]
-</tw-passagedata><tw-passagedata pid="16" name="Zoning" tags="" position="600,875" size="100,100">You are tasked with zoning coral reef areas. The goal is to create protected zones where human activity is reduced to allow coral reefs to recover and build resilience.
+</tw-passagedata><tw-passagedata pid="16" name="RedZone" tags="" position="1275,1525" size="100,100">You&#39;ve created a red zone to establish protected areas where human activity is prohibited, allowing coral reefs to recover and build resilience.
 
-**Choose where to create Marine Protected Areas (MPAs):**
+Choose where to create Marine Protected Areas (MPAs):
 
 (set: $zoned to true)
-[[Zone around popular tourist areas]] 
-[[Zone around key fishing areas]]
-[[Zone deep-water biodiversity hotspots]] 
 
-(text-colour: &quot;red&quot;)[[Proceed to the endgame-&gt;Endgame]]
-</tw-passagedata><tw-passagedata pid="17" name=" HeatTolerantCorals" tags="" position="425,1000" size="100,100">You choose to plant heat-tolerant corals in areas with higher temperatures.
+[[Zone around popular tourist areas]]
+[[Zone around key fishing areas]]
+[[Zone deep-water biodiversity hotspots]]
+
+(text-colour: &quot;red&quot;)[[Proceed to the endgame-&gt;Endgame]]</tw-passagedata><tw-passagedata pid="17" name=" HeatTolerantCorals" tags="" position="450,1050" size="100,100">You choose to plant heat-tolerant corals in areas with higher temperatures.
 
 (if: $zoned)[
   The new coral species begin to take root, showing resilience to the rising water temperatures. While some areas still struggle, the reef&#39;s long-term survival prospects improve.
@@ -170,24 +163,25 @@ Which strategy would you like to start with?
   - [[Return to Strategy Selection -&gt;Strategy Selection]]
   -(text-colour: &quot;red&quot;)[[Proceed to the endgame-&gt;Endgame]]
 ] (else:)[
-  Unfortunately, you cannot plant heat-tolerant corals without first zoning the areas. Please [[Implement zoning regulations-&gt;Zoning]] before proceeding.
-  
-    *What will you do next?*
-  - [[Return to Strategy Selection -&gt;Strategy Selection]]
-  - (text-colour: &quot;red&quot;)[[Proceed to the endgame-&gt;Endgame]]
+Unfortunately, you cannot plant heat-tolerant corals without first zoning the areas. You can only plant them in the Marine Protected Areas (red zone). Please [[Implement zoning regulations -&gt;RedZone]] before proceeding.
+
+What will you do next?
+
+[[Return to Strategy Selection -&gt;Strategy Selection]]
+(text-color: red) [[Proceed to the endgame -&gt;Endgame]]
 ]
 
 
-</tw-passagedata><tw-passagedata pid="18" name="ManageHumanActivity" tags="" position="525,1075" size="100,100">You must balance human activities with coral conservation.
+</tw-passagedata><tw-passagedata pid="18" name="YellowZone" tags="" position="950,1525" size="100,100">You&#39;ve created a yellow zone where human activities are allowed with minimal impact.
 
-**Choose how to manage human activities:**
+Choose how to manage human activities:
 
-[[Restrict tourism in vulnerable areas]] 
-[[Restrict Fishing in vulnerable areas]] 
-[[Encourage sustainable fishing practices]]
-[[Divert tourism to less vulnerable areas]] 
+[[Restrict tourism in vulnerable areas]]
+[[Restrict fishing in vulnerable areas]]
+[[Implement catch limits for fishing]]
+[[Divert tourism to less vulnerable areas]]
 
-(text-colour: &quot;red&quot;)[[Proceed to the endgame-&gt;Endgame]]</tw-passagedata><tw-passagedata pid="19" name="FinalResults" tags="" position="1050,1025" size="100,100">FinalResults
+(text-colour: &quot;red&quot;)[[Proceed to the endgame-&gt;Endgame]]</tw-passagedata><tw-passagedata pid="19" name="FinalResults" tags="" position="1275,1075" size="100,100">FinalResults
 
 - **Coral Health**: (print: $CoralHealth)% 
 - **Human Activity Impact**: (print: $HumanActivityImpact)% 
@@ -254,7 +248,7 @@ Which strategy would you like to start with?
 - **Tourism Activities**: High traffic in sensitive areas
 
 [[Strategy Selection]]
-(text-colour: &quot;red&quot;)[[Proceed to the endgame-&gt;Endgame]]</tw-passagedata><tw-passagedata pid="21" name="Restrict tourism in vulnerable areas" tags="" position="400,1200" size="100,100">You restrict tourism in vulnerable areas to protect the reefs.
+(text-colour: &quot;red&quot;)[[Proceed to the endgame-&gt;Endgame]]</tw-passagedata><tw-passagedata pid="21" name="Restrict tourism in vulnerable areas" tags="" position="650,1325" size="100,100">You restrict tourism in vulnerable areas to protect the reefs.
 
 - **Outcome**: The reefs are recovering, but local businesses dependent on tourism are unhappy. You will need to find a balance.
 
@@ -264,16 +258,7 @@ Which strategy would you like to start with?
 
 
 [[Return to Strategy Selection -&gt;Strategy Selection]]
-(text-colour: &quot;red&quot;)[[Proceed to the endgame-&gt;Endgame]]</tw-passagedata><tw-passagedata pid="22" name="Encourage sustainable fishing practices" tags="" position="675,1375" size="100,100">You work with the fishing industry to promote sustainable fishing practices.
-
-- **Outcome**: Fishing continues, but in a more controlled way that reduces damage to coral reefs. This decision improves both economic and ecological stability.
-
-(set: $CoralHealth to $CoralHealth + 10)
-(set: $HumanActivityImpact to $HumanActivityImpact - 10)
-(set: $EconomicStability to $EconomicStability + 5)
-
-[[Return to Strategy Selection -&gt;Strategy Selection]]
-(text-colour: &quot;red&quot;)[[Proceed to the endgame-&gt;Endgame]]</tw-passagedata><tw-passagedata pid="23" name="Divert tourism to less vulnerable areas" tags="" position="650,1200" size="100,100">You divert tourism from vulnerable areas to less affected parts of the reef.
+(text-colour: &quot;red&quot;)[[Proceed to the endgame-&gt;Endgame]]</tw-passagedata><tw-passagedata pid="22" name="Divert tourism to less vulnerable areas" tags="" position="750,1325" size="100,100">You divert tourism from vulnerable areas to less affected parts of the reef.
 
 - **Outcome**: The diversion works, protecting the reefs while maintaining tourism revenue. However, some areas are still under stress due to the increased human activity.
 
@@ -282,7 +267,7 @@ Which strategy would you like to start with?
 (set: $EconomicStability to $EconomicStability + 5)
 
 [[Return to Strategy Selection -&gt;Strategy Selection]]
-(text-colour: &quot;red&quot;)[[Proceed to the endgame-&gt;Endgame]]</tw-passagedata><tw-passagedata pid="24" name="Why is the Coral Reef Important?" tags="" position="725,425" size="100,100">
+(text-colour: &quot;red&quot;)[[Proceed to the endgame-&gt;Endgame]]</tw-passagedata><tw-passagedata pid="23" name="Why is the Coral Reef Important?" tags="" position="725,425" size="100,100">
 &#39;&#39;Why is the Coral Reef Important?&#39;&#39;
 
 &lt;img src=&quot;https://visitturneffe.org/wp-content/uploads/2022/08/BlueRise-Marine-Parks_Infographic_Why-corals-and-reef-ecosystems-are-important.jpg&quot; alt=&quot;coral reef&quot; style=&quot;width:100%; max-width:600px;&quot;&gt;
@@ -304,7 +289,7 @@ Which strategy would you like to start with?
 [[Back to Introduction -&gt;Introduction]] 
 
 
-</tw-passagedata><tw-passagedata pid="25" name="Restrict Fishing in vulnerable areas" tags="" position="525,1325" size="100,100">You restrict tourism in vulnerable areas to protect the reefs.
+</tw-passagedata><tw-passagedata pid="24" name="Restrict fishing in vulnerable areas" tags="" position="550,1325" size="100,100">You restrict tourism in vulnerable areas to protect the reefs.
 
 - **Outcome**: The reefs are recovering, but local businesses dependent on tourism are unhappy. You will need to find a balance.
 
@@ -314,6 +299,50 @@ Which strategy would you like to start with?
 
 
 [[Return to Strategy Selection -&gt;Strategy Selection]]
+(text-colour: &quot;red&quot;)[[Proceed to the endgame-&gt;Endgame]]</tw-passagedata><tw-passagedata pid="25" name="GreenZone" tags="" position="675,1525" size="100,100">You&#39;ve created a green zone where both tourism and fishing are permitted.
+
+Choose how to manage activities in the green zone:
+
+[[Allow tourism]]
+[[Allow fishing]]
+[[Allow both tourism and fishing]]
+
+(text-colour: &quot;red&quot;)[[Proceed to the endgame-&gt;Endgame]]</tw-passagedata><tw-passagedata pid="26" name="Implement catch limits for fishing" tags="" position="850,1325" size="100,100">You work with the fishing industry to implement catch limits for fishings.
+
+- **Outcome**: Fishing continues, but in a more controlled way that reduces damage to coral reefs. This decision improves both economic and ecological stability.
+
+(set: $CoralHealth to $CoralHealth -5)
+(set: $HumanActivityImpact to $HumanActivityImpact - 10)
+(set: $EconomicStability to $EconomicStability + 5)
+
+[[Return to Strategy Selection -&gt;Strategy Selection]]
+(text-colour: &quot;red&quot;)[[Proceed to the endgame-&gt;Endgame]]</tw-passagedata><tw-passagedata pid="27" name="Allow tourism" tags="" position="600,1725" size="100,100">You allow tourism in the green zone.
+
+  **Outcome**:  Local businesses benefit, but increased foot traffic and activities lead to coral stress, causing a decline in coral health.
+
+(set: $CoralHealth to $CoralHealth - 10)
+(set: $HumanActivityImpact to $HumanActivityImpact + 15)
+(set: $EconomicStability to $EconomicStability + 10)
+
+[[Strategy Selection]]
+(text-colour: &quot;red&quot;)[[Proceed to the endgame-&gt;Endgame]]</tw-passagedata><tw-passagedata pid="28" name="Allow fishing" tags="" position="725,1725" size="100,100">You allow fishing in the green zone.
+
+- **Outcome**:  Overfishing threatens the coral ecosystem, leading to further degradation of coral health.
+
+(set: $CoralHealth to $CoralHealth - 15)
+(set: $HumanActivityImpact to $HumanActivityImpact + 10)
+(set: $EconomicStability to $EconomicStability + 10)
+
+[[Strategy Selection]]
+(text-colour: &quot;red&quot;)[[Proceed to the endgame-&gt;Endgame]]</tw-passagedata><tw-passagedata pid="29" name="Allow both tourism and fishing" tags="" position="650,1850" size="100,100">You allow fishing and tourism in the green zone.
+
+- **Outcome**:  While the local economy flourishes, the combined stress from both activities causes significant harm to the coral reefs, resulting in a sharp decline in coral health.
+
+(set: $CoralHealth to $CoralHealth - 25)
+(set: $HumanActivityImpact to $HumanActivityImpact + 15)
+(set: $EconomicStability to $EconomicStability + 15)
+
+[[Strategy Selection]]
 (text-colour: &quot;red&quot;)[[Proceed to the endgame-&gt;Endgame]]</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
