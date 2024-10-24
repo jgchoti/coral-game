@@ -71,6 +71,8 @@ You&#39;ll need to meet with the stakeholders, particularly the **Government Off
 [[&gt;Talk to Environmental NGOs -&gt;NGOs]]</tw-passagedata><tw-passagedata pid="5" name="Government Officials" tags="" position="75,475" size="100,100">
 You meet with the Government Officials, who are responsible for setting policies and regulations around marine protected areas. 
 
+&lt;img src=&quot;./gov.png&quot; alt=&quot;No Data Found&quot; style=&quot;display: block; margin: 0 auto; width:100%; max-width:400px;&quot;&gt;
+
 &#39;&#39;Government Officials&#39;&#39;: The priority is ensuring biodiversity while maintaining economic stability.
 
 The government has now cleared you to deploy the smart buoys and negotiate with the private sector stakeholders.
@@ -94,6 +96,8 @@ The buoys have been deployed, and real-time data is coming in. You can now view 
 [[&gt;Strategy Selection -&gt;StrategySelection]]</tw-passagedata><tw-passagedata pid="8" name="TourismIndustry" tags="" position="50,950" size="100,100">(if: $gov)[
 With the government’s policy guidance in place, you now meet with the Tourism Industry Leaders. They are deeply concerned about how closing tourist areas could impact their revenue but understand the need to maintain healthy coral reefs for sustainable tourism.
 
+&lt;img src=&quot;./tourism.png&quot; alt=&quot;No Data Found&quot; style=&quot;display: block; margin: 0 auto; width:100%; max-width:400px;&quot;&gt;
+
 **Tourism Leader**: &quot;If we close down these zones for too long, we&#39;ll lose millions. Can we find a balance that keeps our dive tours open without causing too much damage?&quot;
 
 [[&gt;Meet Other stakeholders -&gt;OtherStakeholders]]
@@ -106,6 +110,8 @@ Unfortunately, your efforts to collaborate with the tourism industry have not be
 </tw-passagedata><tw-passagedata pid="9" name="FishingIndustry" tags="" position="50,1075" size="100,100">(if: $gov)[
 With the government’s policy guidance in place, you meet with representatives from the fishing industry, who depend on healthy coral reefs for sustainable fish populations. They express concerns that restrictions on fishing zones could jeopardize their livelihoods.
 
+&lt;img src=&quot;./fishing.png&quot; alt=&quot;No Data Found&quot; style=&quot;display: block; margin: 0 auto; width:100%; max-width:400px;&quot;&gt;
+
 **Fishing Representative**: &quot;We understand the need for conservation, but we can’t afford to lose access to critical fishing areas. What can you do to ensure both our industry and the reef survive?&quot;
 
 [[&gt;Meet Other stakeholders -&gt;OtherStakeholders]]
@@ -115,6 +121,7 @@ Unfortunately, your attempts to collaborate with the fishing industry have not b
 [[&gt;Meet the stakeholders -&gt;Stakeholders]]
   ]
 </tw-passagedata><tw-passagedata pid="10" name="NGOs" tags="" position="175,850" size="100,100">The NGOs are less concerned with short-term economics and more focused on long-term coral recovery. They are pushing for stricter protection measures.
+
 
 &lt;img src=&quot;./ngo.png&quot; alt=&quot;No Data Found&quot; style=&quot;display: block; margin: 0 auto; width:100%; max-width:400px;&quot;&gt;
 
@@ -160,7 +167,7 @@ Unfortunately, your attempts to collaborate with the fishing industry have not b
 [[&gt;Create Red Zone (No Human Activity) -&gt;RedZone]]
 [[&gt;Create Yellow Zone (Minimal Human Activity) -&gt;YellowZone]]
 [[&gt;Create Green Zone (Tourism and Fishing Allowed) -&gt;GreenZone]]
-[[&gt;Plant Heat-Tolerant Corals-&gt; HeatTolerantCorals]]
+[[&gt;Plant Heat-Tolerant Corals-&gt;HeatTolerantCorals]]
 [[&gt;Plant Seagrass Beds and Kelp Forests -&gt;Seagrass]]
 
 [[&gt;Meet Stakeholders -&gt;OtherStakeholders]]
@@ -181,7 +188,6 @@ You have access to the following strategies:
 
 [[&gt;Review Results -&gt;FinalResults]]
 
-
 (if: $CoralHealth &gt; 100)[
     (set: $CoralHealth to 100)
 ]
@@ -200,12 +206,13 @@ Choose where to create Marine Protected Areas (MPAs):
 [[&gt;Zone around key fishing areas-&gt;ZoneFishing]]
 [[&gt;Zone deep-water biodiversity hotspots-&gt;ZoneDeepWater]]
 
-(text-colour: &quot;red&quot;)[[&gt;Proceed to the endgame-&gt;Endgame]]</tw-passagedata><tw-passagedata pid="17" name=" HeatTolerantCorals" tags="" position="450,1050" size="100,100">You choose to plant heat-tolerant corals in areas with higher temperatures.
+(text-colour: &quot;red&quot;)[[&gt;Proceed to the endgame-&gt;Endgame]]</tw-passagedata><tw-passagedata pid="17" name="HeatTolerantCorals" tags="" position="450,1050" size="100,100">You choose to plant heat-tolerant corals in areas with higher temperatures.
 
 (if: $zoned)[
   The new coral species begin to take root, showing resilience to the rising water temperatures. While some areas still struggle, the reef&#39;s long-term survival prospects improve.
   
-  *What will you do next?*
+ What will you do next?
+ 
 [[&gt;Return to Strategy Selection -&gt;StrategySelection]]
 (text-colour: &quot;red&quot;)[[&gt;Proceed to the endgame-&gt;Endgame]]
 (set: $CoralHealth to $CoralHealth + 20)
@@ -241,7 +248,7 @@ Choose how to manage human activities:
     **Ending: A Brighter Future for Coral Reefs** 
     (set: $ending to &quot;A Brighter Future&quot;)
     
-    &lt;img src=&quot;https://mixmag.asia/assets/uploads/images/_facebook/Coral-Reef-Song.jpg&quot; alt=&quot;coral reef&quot; style=&quot;width:100%; max-width:600px;&quot;&gt;
+    &lt;img src=&quot;./1-best-outcome.jpg&quot; alt=&quot;A Brighter Future&quot; style=&quot;width:100%; max-width:600px;&quot;&gt;
     
     [[&gt;Play Again -&gt;Introduction]]
 ]
@@ -252,7 +259,7 @@ Choose how to manage human activities:
     **Ending: A Balanced Recovery**
     (set: $ending to &quot;A Balanced Recovery&quot;)
     
-    &lt;img src=&quot;https://res.cloudinary.com/dpe8wsyk8/image/upload/v1729708709/balance_e0saoq.webp&quot; alt=&quot;coral reef&quot; style=&quot;width:100%; max-width:600px;&quot;&gt;
+    &lt;img src=&quot;./2-balance.jpg&quot; alt=&quot;A Balanced Recovery&quot; style=&quot;width:100%; max-width:600px;&quot;&gt;
  
     [[&gt;Play Again -&gt;Introduction]]
 ]
@@ -263,7 +270,7 @@ Choose how to manage human activities:
     **Ending: An Economic Success, but an Ecological Disaster**
     (set: $ending to &quot;An Economic Success, but an Ecological Disaster&quot;)
     
-    &lt;img src=&quot;https://res.cloudinary.com/dpe8wsyk8/image/upload/v1729708713/coral-suffer_esddru.webp&quot; alt=&quot;coral reef&quot; style=&quot;width:100%; max-width:600px;&quot;&gt;
+    &lt;img src=&quot;./3-coral-suffer.jpeg&quot; alt=&quot;An Economic Success, but an Ecological Disaster&quot; style=&quot;width:100%; max-width:600px;&quot;&gt;
     
     [[&gt;Play Again -&gt;Introduction]]
 ]
@@ -274,7 +281,7 @@ Choose how to manage human activities:
     **Ending: Coral Thrives, Economy Struggles**
     (set: $ending to &quot;Coral Thrives, Economy Struggles&quot;)
     
-    &lt;img src=&quot;https://res.cloudinary.com/dpe8wsyk8/image/upload/v1729707826/DALL_E_2024-10-23_20.10.12_-_A_scene_depicting_a_beautiful_thriving_coral_reef_with_vibrant_colorful_corals_and_a_variety_of_marine_life_like_fish_and_sea_turtles_swimming_among_npsntx.webp&quot; alt=&quot;coral reef&quot; style=&quot;width:100%; max-width:600px;&quot;&gt;
+    &lt;img src=&quot;./4-economy-struggles.jpeg&quot; alt=&quot;Coral Thrives, Economy Struggles&quot; style=&quot;width:100%; max-width:600px;&quot;&gt;
     
     [[&gt;Play Again -&gt;Introduction]]
 ]
@@ -285,7 +292,7 @@ Choose how to manage human activities:
     **Ending: A Coral Collapse**
      (set: $ending to &quot;A Coral Collapse&quot;)
     
-        &lt;img src=&quot;https://res.cloudinary.com/dpe8wsyk8/image/upload/v1729707895/DALL_E_2024-10-23_20.12.34_-_A_scene_showing_a_damaged_and_bleached_coral_reef_with_the_once_vibrant_coral_now_pale_and_lifeless_scattered_with_broken_branches_and_little_marine_n4qrbr.webp&quot; alt=&quot;coral reef&quot; style=&quot;width:100%; max-width:600px;&quot;&gt;
+        &lt;img src=&quot;./5-coral-collapse.webp&quot; alt=&quot;A Coral Collapse&quot; style=&quot;width:100%; max-width:600px;&quot;&gt;
         
     [[&gt;Play Again -&gt;Introduction]]
 ]
@@ -296,7 +303,7 @@ Choose how to manage human activities:
 
 </tw-passagedata><tw-passagedata pid="20" name="RealTimeData" tags="" position="325,1075" size="100,100">Current data from the reef monitoring system shows 🌊📊:
 
-&lt;img src=&quot;https://res.cloudinary.com/dpe8wsyk8/image/upload/v1729775603/dashboard_hjzkhz.jpg&quot; style=&quot;width:100%; max-width:400px;&quot;&gt;
+&lt;img src=&quot;./dashboard.jpeg&quot; style=&quot;width:100%; max-width:400px;&quot;&gt;
 
 - **Temperature**: 29°C (increasing trend)
 - **pH Level**: 7.8 (acidifying)
@@ -401,7 +408,8 @@ Choose how to manage activities in the green zone:
 (if: $zoned)[
   The seagrass beds and kelp forests begin to flourish, significantly enhancing the ecosystem&#39;s ability to absorb CO2. This leads to improved coral health and supports a diverse marine life.
 
-  *What will you do next?*
+ What will you do next?
+ 
 [[&gt;Return to Strategy Selection -&gt;StrategySelection]]
 (text-colour: &quot;red&quot;)[[&gt;Proceed to the endgame-&gt;Endgame]]
   (set: $CoralHealth to $CoralHealth + 15)
@@ -411,6 +419,7 @@ Choose how to manage activities in the green zone:
   Unfortunately, you cannot plant seagrass and kelp without first zoning the areas. You can only plant them in the Marine Protected Areas (red zone). Please [[Implement zoning regulations -&gt;RedZone]] before proceeding.
 
   What will you do next?
+  
   [[&gt;Return to Strategy Selection -&gt;StrategySelection]]
   (text-color: &quot;red&quot;) [[&gt;Proceed to the endgame -&gt;Endgame]]
 ]
