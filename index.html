@@ -181,7 +181,17 @@ Which strategy would you like to start with?
 </tw-passagedata><tw-passagedata pid="15" name="Endgame" tags="" position="1225,850" size="100,100">After several years of managing coral reef health, it&#39;s time to review the results of your strategy.
 
 [[&gt;Review Results -&gt;FinalResults]]
-</tw-passagedata><tw-passagedata pid="16" name="RedZone" tags="" position="1225,1400" size="100,100">You&#39;ve created a red zone to establish protected areas where human activity is prohibited, allowing coral reefs to recover and build resilience.
+
+
+(if: $CoralHealth &gt; 100)[
+    (set: $CoralHealth to 100)
+]
+(if: $HumanActivityImpact &gt; 100)[
+    (set: $HumanActivityImpact to 100)
+]
+(if: $EconomicStability &gt; 100)[
+    (set: $EconomicStability to 100)
+]</tw-passagedata><tw-passagedata pid="16" name="RedZone" tags="" position="1225,1400" size="100,100">You&#39;ve created a red zone to establish protected areas where human activity is prohibited, allowing coral reefs to recover and build resilience.
 
 Choose where to create Marine Protected Areas (MPAs):
 
@@ -221,7 +231,7 @@ Choose how to manage human activities:
 [[&gt;Implement catch limits for fishing-&gt;CatchLimits]]
 [[&gt;Divert tourism to less vulnerable areas-&gt;DivertTourism]]
 
-(text-colour: &quot;red&quot;)[[&gt;Proceed to the endgame-&gt;Endgame]]</tw-passagedata><tw-passagedata pid="19" name="FinalResults" tags="" position="1275,1075" size="100,100">FinalResults
+(text-colour: &quot;red&quot;)[[&gt;Proceed to the endgame-&gt;Endgame]]</tw-passagedata><tw-passagedata pid="19" name="FinalResults" tags="" position="1275,1075" size="100,100">&#39;&#39;FinalResults&#39;&#39;
 
 - **Coral Health**: (print: $CoralHealth)% 
 - **Human Activity Impact**: (print: $HumanActivityImpact)% 
@@ -248,7 +258,7 @@ Choose how to manage human activities:
     [[&gt;Play Again -&gt;Introduction]]
 ]
 
-(else-if: $CoralHealth &lt; 60 and $EconomicStability &gt;= 50)[
+(else-if: $CoralHealth &lt;= 60 and $EconomicStability &gt;= 50)[
     Your priority on maintaining economic growth came at the expense of coral health. While tourism and fishing industries thrived, the coral reefs have suffered, with significant bleaching in certain areas. Without stronger protections, the reefs may not survive long-term.
 
     **Ending: An Economic Success, but an Ecological Disaster**
@@ -259,7 +269,7 @@ Choose how to manage human activities:
     [[&gt;Play Again -&gt;Introduction]]
 ]
 
-(else-if: $CoralHealth &gt;= 60 and $EconomicStability &lt; 50)[
+(else-if: $CoralHealth &gt; 60 and $EconomicStability &lt; 50)[
     Your aggressive conservation efforts saved the coral reefs, but the cost was high for local businesses. Tourism and fishing industries have struggled, and some communities dependent on the ocean for their livelihood are facing hardships. The reefs are healthy, but at an economic price.
 
     **Ending: Coral Thrives, Economy Struggles**
