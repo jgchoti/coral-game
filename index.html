@@ -237,29 +237,29 @@ Choose how to manage human activities:
     [[&gt;Play Again -&gt;Introduction]]
 ]
 
-(else-if: $CoralHealth &gt;= 70 and $EconomicStability &gt; 50)[
+(else-if: $CoralHealth &gt;= 60 and $EconomicStability &gt;= 50 and $HumanActivityImpact &lt;= 40)[
     You managed to strike a balance between conservation and human interests. While some coral areas are still recovering, and human activity has been reduced in certain places, you’ve avoided any large-scale disasters. Tourism and fishing have been affected, but the coral reefs are largely intact.
 
     **Ending: A Balanced Recovery**
     (set: $ending to &quot;A Balanced Recovery&quot;)
     
-&lt;img src=&quot;https://res.cloudinary.com/dpe8wsyk8/image/upload/v1729708709/balance_e0saoq.webp&quot; alt=&quot;coral reef&quot; style=&quot;width:100%; max-width:600px;&quot;&gt;
+    &lt;img src=&quot;https://res.cloudinary.com/dpe8wsyk8/image/upload/v1729708709/balance_e0saoq.webp&quot; alt=&quot;coral reef&quot; style=&quot;width:100%; max-width:600px;&quot;&gt;
  
     [[&gt;Play Again -&gt;Introduction]]
 ]
 
-(else-if: $CoralHealth &lt;= 60 and $EconomicStability &gt;= 60)[
+(else-if: $CoralHealth &lt; 60 and $EconomicStability &gt;= 50)[
     Your priority on maintaining economic growth came at the expense of coral health. While tourism and fishing industries thrived, the coral reefs have suffered, with significant bleaching in certain areas. Without stronger protections, the reefs may not survive long-term.
 
     **Ending: An Economic Success, but an Ecological Disaster**
-      (set: $ending to &quot;An Economic Success, but an Ecological Disaster&quot;)
+    (set: $ending to &quot;An Economic Success, but an Ecological Disaster&quot;)
     
-&lt;img src=&quot;https://res.cloudinary.com/dpe8wsyk8/image/upload/v1729708713/coral-suffer_esddru.webp&quot; alt=&quot;coral reef&quot; style=&quot;width:100%; max-width:600px;&quot;&gt;
-
+    &lt;img src=&quot;https://res.cloudinary.com/dpe8wsyk8/image/upload/v1729708713/coral-suffer_esddru.webp&quot; alt=&quot;coral reef&quot; style=&quot;width:100%; max-width:600px;&quot;&gt;
+    
     [[&gt;Play Again -&gt;Introduction]]
 ]
 
-(else-if: $CoralHealth &gt; 60 and $EconomicStability &lt;= 50)[
+(else-if: $CoralHealth &gt;= 60 and $EconomicStability &lt; 50)[
     Your aggressive conservation efforts saved the coral reefs, but the cost was high for local businesses. Tourism and fishing industries have struggled, and some communities dependent on the ocean for their livelihood are facing hardships. The reefs are healthy, but at an economic price.
 
     **Ending: Coral Thrives, Economy Struggles**
@@ -269,6 +269,7 @@ Choose how to manage human activities:
     
     [[&gt;Play Again -&gt;Introduction]]
 ]
+
 (else:)[
     Unfortunately, your decisions were not enough to save the coral reefs. Widespread bleaching and damage have occurred, and both the economy and coral ecosystems have suffered as a result. The reefs are in a critical state, and it may take decades for them to recover.
 
