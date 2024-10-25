@@ -21,7 +21,7 @@
         color: #333;
         margin-bottom: 20px;
       }
-      a.play-again {
+      a {
         display: inline-block;
         margin-top: 20px;
         padding: 10px 20px;
@@ -35,6 +35,13 @@
       a.play-again:hover {
         background-color: #b9e5e8;
       }
+      a.feedback {
+        background-color: #b9e5e8;
+      }
+      a.feedback:hover {
+        background-color: #4a628a;
+      }
+
       @media (max-width: 600px) {
         body p:has(iframe[src^="https://docs.google.com/spreadsheets"])
         {
@@ -61,7 +68,14 @@
       ></iframe>
     </p>
     <a href="https://coral-game.netlify.app/" class="play-again" target="_self">
-      ⏭️Play Again</a
+      ⏭️ Play Again</a
+    >
+    <a
+      href="https://coral-game.netlify.app/feedback"
+      class="feedback"
+      target="_self"
+    >
+      ❓ Share Your Feedback!</a
     >
   </body>
 </html>
