@@ -29,13 +29,18 @@ window.sendResults = function() {
     })
     .then(response => response.json())
 };
-</script><tw-passagedata pid="1" name="Introduction" tags="" position="625,200" size="100,100">Climate change, rising temperatures, acidifying waters, and human activity are pushing coral reefs to the brink of extinction.
+</script><tw-passagedata pid="1" name="Introduction" tags="" position="625,200" size="100,100">
+#Can You Save Coral Reefs?
+
+
+Climate change, rising temperatures, acidifying waters, and human activity are pushing coral reefs to the brink of extinction.
 
 &lt;img src=&quot;https://images.travelandleisureasia.com/wp-content/uploads/sites/2/2020/10/Feature-image-Great-Barrier-Reef.jpg&quot; alt=&quot;coral reef&quot; style=&quot;width:100%; max-width:600px;&quot;&gt;
 
 To combat this, We have developed an AI system - designed to monitor and protect coral reefs. 
 
-That AI is you.
+
+###That AI is you.
 
 What would you like to do?
 
@@ -47,7 +52,7 @@ What would you like to do?
 (set: $HumanActivityImpact to 50)
 (set: $EconomicStability to 50)
 (set: $gov to false)
-(set: $zoned to false)</tw-passagedata><tw-passagedata pid="2" name="Missions" tags="" position="450,350" size="100,100">&#39;&#39;Mission Overview&#39;&#39;
+(set: $zoned to false)</tw-passagedata><tw-passagedata pid="2" name="Missions" tags="" position="450,350" size="100,100">###Mission Overview
 
 Your mission is to manage coral reef health through the following objectives:
 
@@ -161,7 +166,8 @@ Unfortunately, your attempts to collaborate with the fishing industry have not b
 (set: $EconomicStability to $EconomicStability - 5)
 
 [[&gt;Return to Strategy Selection -&gt;StrategySelection]]
-(text-colour: &quot;red&quot;)[[&gt;Proceed to the endgame-&gt;Endgame]]</tw-passagedata><tw-passagedata pid="14" name="StrategySelection" tags="" position="525,725" size="100,100">&#39;&#39;Which strategy would you like to use?&#39;&#39;
+(text-colour: &quot;red&quot;)[[&gt;Proceed to the endgame-&gt;Endgame]]</tw-passagedata><tw-passagedata pid="14" name="StrategySelection" tags="" position="525,725" size="100,100">
+###Which strategy would you like to use?
 
 [[&gt;Monitor Real-Time Data-&gt;RealTimeData]]
 [[&gt;Create Red Zone (No Human Activity) -&gt;RedZone]]
@@ -236,7 +242,7 @@ Choose how to manage human activities:
 [[&gt;Implement catch limits for fishing-&gt;CatchLimits]]
 [[&gt;Divert tourism to less vulnerable areas-&gt;DivertTourism]]
 
-(text-colour: &quot;red&quot;)[[&gt;Proceed to the endgame-&gt;Endgame]]</tw-passagedata><tw-passagedata pid="19" name="FinalResults" tags="" position="1275,1075" size="100,100">&#39;&#39;FinalResults&#39;&#39;
+(text-colour: &quot;red&quot;)[[&gt;Proceed to the endgame-&gt;Endgame]]</tw-passagedata><tw-passagedata pid="19" name="FinalResults" tags="" position="1275,1075" size="100,100">##FinalResults
 
 - **Coral Health**: (print: $CoralHealth)% 
 - **Human Activity Impact**: (print: $HumanActivityImpact)% 
@@ -310,18 +316,41 @@ Unfortunately, your decisions were not enough to save the coral reefs. Widesprea
 &lt;/script&gt;
 
 
-</tw-passagedata><tw-passagedata pid="20" name="RealTimeData" tags="" position="325,1075" size="100,100">Current data from the reef monitoring system shows 🌊📊:
+</tw-passagedata><tw-passagedata pid="20" name="RealTimeData" tags="" position="325,1075" size="100,100">(set: $checkedStatus to $checkedStatus + 1)
+
+(if: $checkedStatus is 1)[
+### Reef Status Update 🌊📊:
+
+Current data from the reef monitoring system:
 
 &lt;img src=&quot;./dashboard.jpeg&quot; style=&quot;width:100%; max-width:400px;&quot;&gt;
 
-- **Temperature**: 29°C (increasing trend)
+- **Temperature**: 29°C (increasing trend)  
 - **pH Level**: 7.8 (acidifying)
-- **Biodiversity Index**: 70% (declining)
-- **Fishing Activities**: Increasing in nearby zones
-- **Tourism Activities**: High traffic in sensitive areas
+- **Biodiversity Index**: 70% (declining)  
+- **Fishing Activities**: Increasing in nearby zones  
+- **Tourism Activities**: High traffic in sensitive areas  
 
-[[&gt;Strategy Selection-&gt;StrategySelection]] 
-(text-colour: &quot;red&quot;)[[&gt;Proceed to the endgame-&gt;Endgame]]</tw-passagedata><tw-passagedata pid="21" name="RestrictTourism" tags="" position="950,1625" size="100,100">You restrict tourism in vulnerable areas to protect the reefs.
+]
+
+&lt;!-- Show this content if it&#39;s the second or subsequent time checking --&gt;
+(else:)[
+### Reef Status Update 🌊📊:
+
+Current data from the reef monitoring system:
+
+&lt;img src=&quot;./dashboard.jpeg&quot; style=&quot;width:100%; max-width:400px;&quot;&gt;
+
+- **Temperature**: 29°C (increasing trend)  
+- **pH Level**: 7.8 (acidifying)
+- **Coral Health**: (print: $CoralHealth)%  
+- **Human Activity Impact**: (print: $HumanActivityImpact)%  
+- **Economic Stability**: (print: $EconomicStability)%  
+]
+
+[[&gt;Strategy Selection-&gt;StrategySelection]]  
+(text-colour: &quot;red&quot;)[[&gt;Proceed to the endgame-&gt;Endgame]]
+</tw-passagedata><tw-passagedata pid="21" name="RestrictTourism" tags="" position="950,1625" size="100,100">You restrict tourism in vulnerable areas to protect the reefs.
 
 - **Outcome**: The reefs are recovering, but local businesses dependent on tourism are unhappy. You will need to find a balance.
 
