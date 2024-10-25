@@ -243,56 +243,66 @@ Choose how to manage human activities:
 - **Human Activity Impact**: (print: $HumanActivityImpact)% 
 - **Economic Stability**: (print: $EconomicStability)% 
 (if: $CoralHealth &gt;= 80 and $EconomicStability &gt;= 50 and $HumanActivityImpact &lt;= 40)[
-    The reefs have not only survived but thrived under your management. Your strategies allowed for sustainable tourism and fishing without sacrificing coral health. This is the best possible outcome: coral ecosystems are resilient, human activity is controlled, and the economy is stable.
+The reefs have not only survived but thrived under your management. Your strategies allowed for sustainable tourism and fishing without sacrificing coral health. This is the best possible outcome: coral ecosystems are resilient, human activity is controlled, and the economy is stable.
 
     **Ending: A Brighter Future for Coral Reefs** 
     (set: $ending to &quot;A Brighter Future&quot;)
     
-    &lt;img src=&quot;./1-best-outcome.jpg&quot; alt=&quot;A Brighter Future&quot; style=&quot;width:100%; max-width:600px;&quot;&gt;
+&lt;img src=&quot;./1-best-outcome.jpg&quot; alt=&quot;A Brighter Future&quot; style=&quot;width:100%; max-width:600px;&quot;&gt;
     
     [[&gt;Play Again -&gt;Introduction]]
 ]
 
 (else-if: $CoralHealth &gt;= 60 and $EconomicStability &gt;= 50 and $HumanActivityImpact &lt;= 40)[
-    You managed to strike a balance between conservation and human interests. While some coral areas are still recovering, and human activity has been reduced in certain places, you’ve avoided any large-scale disasters. Tourism and fishing have been affected, but the coral reefs are largely intact.
+You managed to strike a balance between conservation and human interests. While some coral areas are still recovering, and human activity has been reduced in certain places, you’ve avoided any large-scale disasters. Tourism and fishing have been affected, but the coral reefs are largely intact.
 
     **Ending: A Balanced Recovery**
     (set: $ending to &quot;A Balanced Recovery&quot;)
     
-    &lt;img src=&quot;./2-balance.jpg&quot; alt=&quot;A Balanced Recovery&quot; style=&quot;width:100%; max-width:600px;&quot;&gt;
+&lt;img src=&quot;./2-balance.jpg&quot; alt=&quot;A Balanced Recovery&quot; style=&quot;width:100%; max-width:600px;&quot;&gt;
  
     [[&gt;Play Again -&gt;Introduction]]
 ]
 
+(else-if: $CoralHealth &gt;= 60 and $HumanActivityImpact &gt; 50)[
+Despite your efforts to maintain coral health, the high level of human activity has taken a toll on the reefs. Unregulated tourism, pollution, and overfishing continue to put pressure on these vibrant ecosystems. While the coral may look healthy, the hidden damage is significant. Without immediate action, the long-term survival of the reefs is at risk, especially because of climate change.
+
+    **Ending: An Illusion of Stability**
+    (set: $ending to &quot;An Illusion of Stability&quot;)
+    
+    &lt;img src=&quot;./6-illusion.webp&quot; alt=&quot;A Human Impact Crisis&quot; style=&quot;width:100%; max-width:600px;&quot;&gt;
+    
+    [[&gt;Play Again -&gt;Introduction]]
+]
+
 (else-if: $CoralHealth &lt;= 60 and $EconomicStability &gt; 50)[
-    Your priority on maintaining economic growth came at the expense of coral health. While tourism and fishing industries thrived, the coral reefs have suffered, with significant bleaching in certain areas. Without stronger protections, the reefs may not survive long-term.
+Your priority on maintaining economic growth came at the expense of coral health. While tourism and fishing industries thrived, the coral reefs have suffered, with significant bleaching in some areas. Without stronger protections, the reefs may not survive long-term due to the effects of climate change.
 
     **Ending: An Economic Success, but an Ecological Disaster**
     (set: $ending to &quot;An Economic Success, but an Ecological Disaster&quot;)
     
-    &lt;img src=&quot;./3-coral-suffer.jpeg&quot; alt=&quot;An Economic Success, but an Ecological Disaster&quot; style=&quot;width:100%; max-width:600px;&quot;&gt;
+&lt;img src=&quot;./3-coral-suffer.jpeg&quot; alt=&quot;An Economic Success, but an Ecological Disaster&quot; style=&quot;width:100%; max-width:600px;&quot;&gt;
     
     [[&gt;Play Again -&gt;Introduction]]
 ]
 
 (else-if: $CoralHealth &gt; 60 and $EconomicStability &lt;= 50)[
-    Your aggressive conservation efforts saved the coral reefs, but the cost was high for local businesses. Tourism and fishing industries have struggled, and some communities dependent on the ocean for their livelihood are facing hardships. The reefs are healthy, but at an economic price.
+Your aggressive conservation efforts saved the coral reefs, but the cost was high for local businesses. Tourism and fishing industries have struggled, and some communities dependent on the ocean for their livelihood are facing hardships. The reefs are healthy, but at an economic price.
 
     **Ending: Coral Thrives, Economy Struggles**
     (set: $ending to &quot;Coral Thrives, Economy Struggles&quot;)
     
-    &lt;img src=&quot;./4-economy-struggles.jpeg&quot; alt=&quot;Coral Thrives, Economy Struggles&quot; style=&quot;width:100%; max-width:600px;&quot;&gt;
+&lt;img src=&quot;./4-economy-struggles.jpeg&quot; alt=&quot;Coral Thrives, Economy Struggles&quot; style=&quot;width:100%; max-width:600px;&quot;&gt;
     
     [[&gt;Play Again -&gt;Introduction]]
 ]
-
 (else:)[
-    Unfortunately, your decisions were not enough to save the coral reefs. Widespread bleaching and damage have occurred, and both the economy and coral ecosystems have suffered as a result. The reefs are in a critical state, and it may take decades for them to recover.
+Unfortunately, your decisions were not enough to save the coral reefs. Widespread bleaching and damage have occurred, and both the economy and coral ecosystems have suffered as a result. The reefs are in a critical state and may take decades to recover due to climate change.
 
     **Ending: A Coral Collapse**
      (set: $ending to &quot;A Coral Collapse&quot;)
     
-        &lt;img src=&quot;./5-coral-collapse.webp&quot; alt=&quot;A Coral Collapse&quot; style=&quot;width:100%; max-width:600px;&quot;&gt;
+&lt;img src=&quot;./5-coral-collapse.webp&quot; alt=&quot;A Coral Collapse&quot; style=&quot;width:100%; max-width:600px;&quot;&gt;
         
     [[&gt;Play Again -&gt;Introduction]]
 ]
