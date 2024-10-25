@@ -21,22 +21,47 @@
         color: #333;
         margin-bottom: 20px;
       }
+      a.play-again {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: #4a628a;
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+      }
+      a.play-again:hover {
+        background-color: #b9e5e8;
+      }
       @media (max-width: 600px) {
-        iframe {
-          height: 40vh;
+        body p:has(iframe[src^="https://docs.google.com/spreadsheets"])
+        {
+          transform: scale(0.5);
+        }
+        body p iframe[src^="https://docs.google.com/spreadsheets"]
+        {
+          min-width: 200%;
+          position: relative;
         }
       }
     </style>
   </head>
   <body>
     <h1>Can Most Players Save the Coral Reef?</h1>
-    <iframe
-      width="819"
-      height="506"
-      seamless
-      frameborder="0"
-      scrolling="no"
-      src="https://docs.google.com/spreadsheets/d/e/2PACX-1vT9Qy3xEAsFRCNKxARoGnEAu9cceg7xMSdU3T8BZ5aokdK-DKv-VdB6KwXiCEvRrgv02Lolialw9ycs/pubchart?oid=1952428817&amp;format=interactive"
-    ></iframe>
+    <p>
+      <iframe
+        width="819"
+        height="506"
+        seamless
+        frameborder="0"
+        scrolling="no"
+        src="https://docs.google.com/spreadsheets/d/e/2PACX-1vT9Qy3xEAsFRCNKxARoGnEAu9cceg7xMSdU3T8BZ5aokdK-DKv-VdB6KwXiCEvRrgv02Lolialw9ycs/pubchart?oid=1952428817&amp;format=interactive"
+      ></iframe>
+    </p>
+    <a href="https://coral-game.netlify.app/" class="play-again" target="_self">
+      ⏭️Play Again</a
+    >
   </body>
 </html>
