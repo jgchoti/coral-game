@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Game Results Showcase</title>
+
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -11,15 +12,13 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        height: 100vh;
         background-color: #f9f9f9;
-        margin: 0;
         padding: 20px;
       }
       h1 {
         text-align: center;
         color: #333;
-        margin-bottom: 20px;
+        margin-bottom: 40px;
       }
       a {
         display: inline-block;
@@ -39,18 +38,24 @@
         background-color: #b9e5e8;
       }
       a.feedback:hover {
-        background-color: #4a628a;
+        background-color: hsl(218, 30%, 42%);
       }
-
-      @media (max-width: 600px) {
+      @media (max-width: 500px) {
         body p:has(iframe[src^="https://docs.google.com/spreadsheets"])
         {
           transform: scale(0.5);
+          transform-origin: top center;
+          margin-left: 120px;
         }
         body p iframe[src^="https://docs.google.com/spreadsheets"]
         {
-          min-width: 200%;
-          position: relative;
+          min-width: 110%;
+        }
+        body p {
+          margin-bottom: 0;
+        }
+        body {
+          padding: 20px 10px;
         }
       }
     </style>
