@@ -253,8 +253,6 @@ The reefs have not only survived but thrived under your management. Your strateg
     (set: $ending to &quot;A Brighter Future&quot;)
     
 &lt;img src=&quot;./1-best-outcome.jpg&quot; alt=&quot;A Brighter Future&quot; style=&quot;width:100%; max-width:600px;&quot;&gt;
-    
-    [[&gt;Play Again -&gt;Introduction]]
 ]
 
 (else-if: $CoralHealth &gt;= 60 and $EconomicStability &gt;= 50 and $HumanActivityImpact &lt;= 40)[
@@ -264,8 +262,6 @@ You managed to strike a balance between conservation and human interests. While 
     (set: $ending to &quot;A Balanced Recovery&quot;)
     
 &lt;img src=&quot;./2-balance.jpg&quot; alt=&quot;A Balanced Recovery&quot; style=&quot;width:100%; max-width:600px;&quot;&gt;
- 
-    [[&gt;Play Again -&gt;Introduction]]
 ]
 
 (else-if: $CoralHealth &gt;= 60 and $HumanActivityImpact &gt; 50)[
@@ -275,8 +271,6 @@ Despite your efforts to maintain coral health, the high level of human activity 
     (set: $ending to &quot;An Illusion of Stability&quot;)
     
     &lt;img src=&quot;./6-illusion.webp&quot; alt=&quot;A Human Impact Crisis&quot; style=&quot;width:100%; max-width:600px;&quot;&gt;
-    
-    [[&gt;Play Again -&gt;Introduction]]
 ]
 
 (else-if: $CoralHealth &lt;= 60 and $EconomicStability &gt; 50)[
@@ -286,8 +280,6 @@ Your priority on maintaining economic growth came at the expense of coral health
     (set: $ending to &quot;An Economic Success, but an Ecological Disaster&quot;)
     
 &lt;img src=&quot;./3-coral-suffer.jpeg&quot; alt=&quot;An Economic Success, but an Ecological Disaster&quot; style=&quot;width:100%; max-width:600px;&quot;&gt;
-    
-    [[&gt;Play Again -&gt;Introduction]]
 ]
 
 (else-if: $CoralHealth &gt; 60 and $EconomicStability &lt;= 50)[
@@ -297,8 +289,6 @@ Your aggressive conservation efforts saved the coral reefs, but the cost was hig
     (set: $ending to &quot;Coral Thrives, Economy Struggles&quot;)
     
 &lt;img src=&quot;./4-economy-struggles.jpeg&quot; alt=&quot;Coral Thrives, Economy Struggles&quot; style=&quot;width:100%; max-width:600px;&quot;&gt;
-    
-    [[&gt;Play Again -&gt;Introduction]]
 ]
 (else:)[
 Unfortunately, your decisions were not enough to save the coral reefs. Widespread bleaching and damage have occurred, and both the economy and coral ecosystems have suffered as a result. The reefs are in a critical state and may take decades to recover due to climate change.
@@ -307,9 +297,10 @@ Unfortunately, your decisions were not enough to save the coral reefs. Widesprea
      (set: $ending to &quot;A Coral Collapse&quot;)
     
 &lt;img src=&quot;./5-coral-collapse.webp&quot; alt=&quot;A Coral Collapse&quot; style=&quot;width:100%; max-width:600px;&quot;&gt;
-        
-    [[&gt;Play Again -&gt;Introduction]]
 ]
+[[&gt;Play Again -&gt;Introduction]]
+&lt;a href=&quot;https://coral-game.netlify.app/result&quot; target=&quot;_blank&quot; style=&quot;color: #B9E5E8; font-weight: bold;&quot;&gt;&gt;See How Your Ending Compares to Others&lt;/a&gt;
+
 &lt;script&gt;
     sendResults(); // Automatically trigger the sendResults function
 &lt;/script&gt;
