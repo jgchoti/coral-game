@@ -9,27 +9,24 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play CoralReef.</tw-noscript></noscript></tw-story>
-<tw-storydata name="CoralReef" startnode="1" creator="Twine" creator-version="2.9.2" format="Harlowe" format-version="3.3.9" ifid="F06FAEED-28B6-4D16-BE00-CB70483229AF" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript">// This makes the sendResults function globally accessible
+<tw-storydata name="CoralReef" startnode="1" creator="Twine" creator-version="2.9.2" format="Harlowe" format-version="3.3.9" ifid="F06FAEED-28B6-4D16-BE00-CB70483229AF" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"> // This makes the sendResults function globally accessible
 window.sendResults = function() {
     // Get variables from the Harlowe game state
     const data = {
-        ending: State.variables.ending, // Ensure this matches your Twine variable names
+        ending: State.variables.ending,
         coralHealth: State.variables.CoralHealth,
         economicStability: State.variables.EconomicStability,
         humanActivityImpact: State.variables.HumanActivityImpact
     };
-
-    // Send data to Google Sheets using fetch API
-    fetch('https://script.google.com/macros/s/AKfycbzkf7Vv5W5rzGYKeN3f3UclB26FQXbSU31qHQwPWC3qwhK9j57jsWUTBYW2eYJGSv7U/exec', {
+fetch('https://script.google.com/macros/s/AKfycbxCeVntqTz9l_YxXLV-a395X6Jb8uphvj-wu1MAmPF3V90XXgPiDg5cfreGbU-cXSoT/exec', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
         },
-        body: new URLSearchParams(data) // Encode the data for sending
+        body: new URLSearchParams(data)
     })
     .then(response => response.json())
-};
-</script><tw-passagedata pid="1" name="Introduction" tags="" position="625,200" size="100,100">#Can You Save Coral Reefs?
+}; </script><tw-passagedata pid="1" name="Introduction" tags="" position="625,200" size="100,100">#Can You Save Coral Reefs?
 
 
 Climate change, rising temperatures, acidifying waters, and human activity are pushing coral reefs to the brink of extinction.
@@ -299,7 +296,10 @@ Unfortunately, your decisions were not enough to save the coral reefs. Widesprea
 &lt;img src=&quot;./5-coral-collapse.webp&quot; alt=&quot;A Coral Collapse&quot; style=&quot;width:100%; max-width:600px;&quot;&gt;
 ]
 [[&gt;Play Again -&gt;Introduction]]
-&lt;a href=&quot;https://coral-game.netlify.app/result&quot; target=&quot;_blank&quot; style=&quot;color: #B9E5E8; font-weight: bold;&quot;&gt;&gt;See How Your Ending Compares to Others&lt;/a&gt;
+
+&lt;a href=&quot;https://coral-game.netlify.app/result&quot; target=&quot;_blank&quot; style=&quot;color: #B9E5E8; 
+font-weight: bold;&quot;&gt;&gt;See How Your Ending Compares to Others&lt;/a&gt;
+&lt;a href=&quot;https://coral-game.netlify.app/feedback&quot; target=&quot;_blank&quot; style=&quot;color: #B9E5E8; font-weight: bold;&quot;&gt;&gt;Share Your Thoughts&lt;/a&gt;
 
 &lt;script&gt;
     sendResults(); // Automatically trigger the sendResults function
