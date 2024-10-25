@@ -21,6 +21,16 @@
         color: #333;
         margin-bottom: 20px;
       }
+      #feedbackText {
+        width: 100%; /* Make the textarea responsive */
+        max-width: 600px; /* Limit the maximum width */
+        min-height: 100px; /* Set a minimum height */
+        margin-bottom: 20px; /* Add some space below the textarea */
+        padding: 10px; /* Add padding for better text readability */
+        border: 1px solid #ccc; /* Add a border */
+        border-radius: 5px; /* Add rounded corners */
+        font-size: 16px; /* Set a comfortable font size */
+      }
       #submitBtn {
         display: inline-block;
         margin-top: 20px;
@@ -54,13 +64,7 @@
   <body>
     <h2>Share Your Feedback!</h2>
     <p>Please let us know your thoughts about the game.</p>
-    <textarea
-      id="feedbackText"
-      placeholder="Share your thoughts..."
-      rows="5"
-      cols="40"
-    ></textarea
-    ><br />
+    <textarea id="feedbackText" placeholder="Share your thoughts..."></textarea>
     <button id="submitBtn">Submit Feedback</button>
     <a href="https://coral-game.netlify.app/" class="play-again" target="_self"
       >⏭️Play Again</a
