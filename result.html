@@ -41,21 +41,30 @@
         background-color: hsl(218, 30%, 42%);
       }
       @media (max-width: 500px) {
+        body {
+          padding: 20px 10px;
+        }
+
+        body p {
+          margin: 0;
+        }
+
         body p:has(iframe[src^="https://docs.google.com/spreadsheets"])
         {
+          margin-bottom: 10px;
           transform: scale(0.5);
-          transform-origin: top center;
-          margin-left: 120px;
+          transform-origin: top left;
         }
+
+        a {
+          margin-top: 5px;
+        }
+
         body p iframe[src^="https://docs.google.com/spreadsheets"]
         {
           min-width: 110%;
-        }
-        body p {
-          margin-bottom: 0;
-        }
-        body {
-          padding: 20px 10px;
+          position: relative;
+          left: 60%;
         }
       }
     </style>
