@@ -136,18 +136,18 @@ Unfortunately, your attempts to collaborate with the fishing industry have not b
 
 - **Outcome**: The reefs are showing signs of recovery, but tourism revenues in this region are dropping. Local businesses are concerned.
 
-(set: $CoralHealth to $CoralHealth + 20)
+(set: $CoralHealth to $CoralHealth + 25)
 (set: $HumanActivityImpact to $HumanActivityImpact - 20)
-(set: $EconomicStability to $EconomicStability - 25)
+(set: $EconomicStability to $EconomicStability - 20)
 
 [[&gt;Return to Strategy Selection -&gt;StrategySelection]]
 (text-colour: &quot;red&quot;)[[&gt;Proceed to the endgame-&gt;Endgame]]</tw-passagedata><tw-passagedata pid="12" name="ZoneFishing" tags="" position="1200,1250" size="100,100">You’ve created a Marine Protected Area(red zone) around fishing areas. 
 
 - **Outcome**: Coral health improves in these zones, but local fishing industries face economic challenges. You’ll need to manage the balance between fishing and conservation.
 
-(set: $CoralHealth to $CoralHealth + 15)
-(set: $HumanActivityImpact to $HumanActivityImpact - 15)
-(set: $EconomicStability to $EconomicStability - 10)
+(set: $CoralHealth to $CoralHealth + 20)
+(set: $HumanActivityImpact to $HumanActivityImpact - 10)
+(set: $EconomicStability to $EconomicStability - 15)
 
 [[&gt;Return to Strategy Selection -&gt;StrategySelection]]
 (text-colour: &quot;red&quot;)[[&gt;Proceed to the endgame-&gt;Endgame]]
@@ -216,7 +216,6 @@ Choose where to create Marine Protected Areas (MPAs):
 [[&gt;Return to Strategy Selection -&gt;StrategySelection]]
 (text-colour: &quot;red&quot;)[[&gt;Proceed to the endgame-&gt;Endgame]]
 (set: $CoralHealth to $CoralHealth + 20)
-(set: $HumanActivityImpact to $HumanActivityImpact - 5)
 (set: $EconomicStability to $EconomicStability - 10)
 ] (else:)[
 Unfortunately, you cannot plant heat-tolerant corals without first zoning the areas. You can only plant them in the Marine Protected Areas (red zone). Please [[Implement zoning regulations -&gt;RedZone]] before proceeding.
@@ -337,7 +336,7 @@ Unfortunately, your decisions were not enough to save the coral reefs. Widesprea
 
 (set: $CoralHealth to $CoralHealth + 5)
 (set: $HumanActivityImpact to $HumanActivityImpact - 5)
-(set: $EconomicStability to $EconomicStability + 5)
+(set: $EconomicStability to $EconomicStability + 10)
 
 [[&gt;Return to Strategy Selection -&gt;StrategySelection]]
 (text-colour: &quot;red&quot;)[[&gt;Proceed to the endgame-&gt;Endgame]]</tw-passagedata><tw-passagedata pid="23" name="CoralReef" tags="" position="775,350" size="100,100">&#39;&#39;Why is the Coral Reef Important?&#39;&#39;
@@ -360,9 +359,9 @@ Unfortunately, your decisions were not enough to save the coral reefs. Widesprea
 [[&gt;Back to Introduction -&gt;Introduction]] 
 
 
-</tw-passagedata><tw-passagedata pid="24" name="RestrictFishing" tags="" position="1050,1625" size="100,100">You restrict tourism in vulnerable areas to protect the reefs.
+</tw-passagedata><tw-passagedata pid="24" name="RestrictFishing" tags="" position="1050,1625" size="100,100">You restrict fishing in vulnerable areas to protect the reefs.
 
-- **Outcome**: The reefs are recovering, but local businesses dependent on tourism are unhappy. You will need to find a balance.
+- **Outcome**: The reefs are showing signs of recovery, but local businesses dependent on fishings are unhappy. You will need to find a balance.
 
 (set: $CoralHealth to $CoralHealth + 15)
 (set: $HumanActivityImpact to $HumanActivityImpact - 10)
@@ -381,9 +380,9 @@ Choose how to manage activities in the green zone:
 
 - **Outcome**: Fishing continues, but in a more controlled way that reduces damage to coral reefs. This decision improves both economic and ecological stability.
 
-(set: $CoralHealth to $CoralHealth -5)
+(set: $CoralHealth to $CoralHealth +5)
 (set: $HumanActivityImpact to $HumanActivityImpact - 10)
-(set: $EconomicStability to $EconomicStability + 5)
+(set: $EconomicStability to $EconomicStability + 10)
 
 [[&gt;Return to Strategy Selection -&gt;StrategySelection]]
 (text-colour: &quot;red&quot;)[[&gt;Proceed to the endgame-&gt;Endgame]]</tw-passagedata><tw-passagedata pid="27" name="AllowTourism" tags="" position="600,1725" size="100,100">You allow tourism in the green zone.
@@ -399,9 +398,9 @@ Choose how to manage activities in the green zone:
 
 - **Outcome**:  Overfishing threatens the coral ecosystem, leading to further degradation of coral health.
 
-(set: $CoralHealth to $CoralHealth - 15)
+(set: $CoralHealth to $CoralHealth - 10)
 (set: $HumanActivityImpact to $HumanActivityImpact + 10)
-(set: $EconomicStability to $EconomicStability + 10)
+(set: $EconomicStability to $EconomicStability + 15)
 
 [[&gt;Return to Strategy Selection -&gt;StrategySelection]]
 (text-colour: &quot;red&quot;)[[&gt;Proceed to the endgame-&gt;Endgame]]</tw-passagedata><tw-passagedata pid="29" name="AllowBoth" tags="" position="650,1850" size="100,100">You allow fishing and tourism in the green zone.
@@ -409,8 +408,8 @@ Choose how to manage activities in the green zone:
 - **Outcome**:  While the local economy flourishes, the combined stress from both activities causes significant harm to the coral reefs, resulting in a sharp decline in coral health.
 
 (set: $CoralHealth to $CoralHealth - 25)
-(set: $HumanActivityImpact to $HumanActivityImpact + 15)
-(set: $EconomicStability to $EconomicStability + 15)
+(set: $HumanActivityImpact to $HumanActivityImpact + 20)
+(set: $EconomicStability to $EconomicStability + 20)
 
 [[&gt;Return to Strategy Selection -&gt;StrategySelection]]
 (text-colour: &quot;red&quot;)[[&gt;Proceed to the endgame-&gt;Endgame]]</tw-passagedata><tw-passagedata pid="30" name="Seagrass" tags="" position="550,1125" size="100,100">You choose to plant seagrass beds and kelp forests.
@@ -423,7 +422,6 @@ Choose how to manage activities in the green zone:
 [[&gt;Return to Strategy Selection -&gt;StrategySelection]]
 (text-colour: &quot;red&quot;)[[&gt;Proceed to the endgame-&gt;Endgame]]
   (set: $CoralHealth to $CoralHealth + 15)
-  (set: $HumanActivityImpact to $HumanActivityImpact - 5)
   (set: $EconomicStability to $EconomicStability - 5)
 ](else:)[
   Unfortunately, you cannot plant seagrass and kelp without first zoning the areas. You can only plant them in the Marine Protected Areas (red zone). Please [[Implement zoning regulations -&gt;RedZone]] before proceeding.
