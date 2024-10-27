@@ -120,10 +120,10 @@
       }).addTo(map);
 
       const buoyIcon = L.icon({
-        iconUrl: "./location-dot.svg", // Replace with your custom icon URL
-        iconSize: [25, 41], // size of the icon
-        iconAnchor: [12, 41], // point of the icon which will correspond to marker's location
-        popupAnchor: [1, -34], // point from which the popup should open relative to the iconAnchor
+        iconUrl: "./location-dot.svg",
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
       });
 
       // Create Layer Groups
@@ -132,7 +132,7 @@
       const activityLayer = L.layerGroup();
       const buoyLayer = L.layerGroup().addTo(map);
 
-      // Coral Reefs Data (Example Data)
+      // Coral Reefs Data
       const coralReefs = [
         { name: "Reef 1", coords: [10.1, 99.8], health: 0.9 }, // Excellent Health
         { name: "Reef 2", coords: [10.05, 99.85], health: 0.5 }, // Moderate Health
@@ -183,49 +183,49 @@
       const smartBuoys = [
         {
           name: "Buoy 1",
-          coords: [10.14, 99.71], // Covers Reef 1 and nearby activities
+          coords: [10.14, 99.71],
           waterTemp: 29,
           phLevel: 8.0,
           pollution: 4,
         },
         {
           name: "Buoy 2",
-          coords: [10.02, 99.84], // Covers Reef 2 and Reef 8
+          coords: [10.02, 99.84],
           waterTemp: 28,
           phLevel: 7.9,
           pollution: 3,
         },
         {
           name: "Buoy 3",
-          coords: [10.18, 99.83], // Covers Reef 3 and Reef 9
+          coords: [10.18, 99.83],
           waterTemp: 30,
           phLevel: 7.6,
           pollution: 9,
         },
         {
           name: "Buoy 4",
-          coords: [10.3, 99.9], // Covers Reef 4 and nearby activities
+          coords: [10.3, 99.9],
           waterTemp: 27,
           phLevel: 8.1,
           pollution: 2,
         },
         {
           name: "Buoy 5",
-          coords: [10.11, 99.96], // Covers Reef 5 and nearby human activity zones
+          coords: [10.11, 99.96],
           waterTemp: 26,
           phLevel: 8.2,
           pollution: 3,
         },
         {
           name: "Buoy 6",
-          coords: [10.3, 99.74], // Covers Reef 7 and near Reef 6
+          coords: [10.3, 99.74],
           waterTemp: 29,
           phLevel: 7.8,
           pollution: 5,
         },
         {
           name: "Buoy 7",
-          coords: [10.3, 99.74], // Central point to cover multiple reefs
+          coords: [10.3, 99.74],
           waterTemp: 27,
           phLevel: 8.0,
           pollution: 4,
@@ -252,7 +252,7 @@
       }
       // Create Zoning Polygon
       function createZoningPolygon(buoy) {
-        const expansionFactor = 0.06; // Expansion factor for the zone
+        const expansionFactor = 0.06;
         const expandedZone = [
           [buoy.coords[0] + expansionFactor, buoy.coords[1] + expansionFactor], // Top right
           [buoy.coords[0] + expansionFactor, buoy.coords[1] - expansionFactor], // Bottom right
