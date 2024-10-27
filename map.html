@@ -136,11 +136,11 @@
       const coralReefs = [
         { name: "Reef 1", coords: [10.1, 99.8], health: 0.9 }, // Excellent Health
         { name: "Reef 2", coords: [10.05, 99.85], health: 0.5 }, // Moderate Health
-        { name: "Reef 3", coords: [10.15, 99.75], health: 0.3 }, // Poor Health
+        { name: "Reef 3", coords: [10.18, 99.74], health: 0.3 }, // Poor Health
         { name: "Reef 4", coords: [10.2, 99.8], health: 0.1 }, // Very Poor Health
         { name: "Reef 5", coords: [10.12, 99.85], health: 0.7 }, // Good Health
         { name: "Reef 6", coords: [10.08, 99.88], health: 0.4 }, // Moderate Health
-        { name: "Reef 7", coords: [10.18, 99.82], health: 0.2 }, // Poor Health
+        { name: "Reef 7", coords: [10.18, 99.83], health: 0.2 }, // Poor Health
         { name: "Reef 8", coords: [10.22, 99.75], health: 0.8 }, // Excellent Health
         { name: "Reef 9", coords: [10.14, 99.76], health: 0.6 }, // Good Health
         { name: "Reef 10", coords: [10.16, 99.79], health: 0.15 }, // Very Poor Health
@@ -177,55 +177,55 @@
         reef.coords[1],
         reef.health,
       ]);
-      const heatLayer = L.heatLayer(heatData, { radius: 30, blur: 15 });
+      const heatLayer = L.heatLayer(heatData, { radius: 100, blur: 15 });
 
       // AI-Suggested Zoning
       const smartBuoys = [
         {
           name: "Buoy 1",
-          coords: [10.12, 99.74], // Covers Reef 1 and nearby activities
+          coords: [10.14, 99.71], // Covers Reef 1 and nearby activities
           waterTemp: 29,
           phLevel: 8.0,
           pollution: 4,
         },
         {
           name: "Buoy 2",
-          coords: [10.05, 99.82], // Covers Reef 2 and Reef 8
+          coords: [10.02, 99.84], // Covers Reef 2 and Reef 8
           waterTemp: 28,
           phLevel: 7.9,
           pollution: 3,
         },
         {
           name: "Buoy 3",
-          coords: [10.18, 99.8], // Covers Reef 3 and Reef 9
+          coords: [10.18, 99.83], // Covers Reef 3 and Reef 9
           waterTemp: 30,
           phLevel: 7.6,
           pollution: 9,
         },
         {
           name: "Buoy 4",
-          coords: [10.2, 99.9], // Covers Reef 4 and nearby activities
+          coords: [10.3, 99.9], // Covers Reef 4 and nearby activities
           waterTemp: 27,
           phLevel: 8.1,
           pollution: 2,
         },
         {
           name: "Buoy 5",
-          coords: [10.11, 99.82], // Covers Reef 5 and nearby human activity zones
+          coords: [10.11, 99.96], // Covers Reef 5 and nearby human activity zones
           waterTemp: 26,
           phLevel: 8.2,
           pollution: 3,
         },
         {
           name: "Buoy 6",
-          coords: [10.18, 99.74], // Covers Reef 7 and near Reef 6
+          coords: [10.3, 99.74], // Covers Reef 7 and near Reef 6
           waterTemp: 29,
           phLevel: 7.8,
           pollution: 5,
         },
         {
           name: "Buoy 7",
-          coords: [10.24, 99.74], // Central point to cover multiple reefs
+          coords: [10.3, 99.74], // Central point to cover multiple reefs
           waterTemp: 27,
           phLevel: 8.0,
           pollution: 4,
@@ -252,7 +252,7 @@
       }
       // Create Zoning Polygon
       function createZoningPolygon(buoy) {
-        const expansionFactor = 0.03; // Expansion factor for the zone
+        const expansionFactor = 0.06; // Expansion factor for the zone
         const expandedZone = [
           [buoy.coords[0] + expansionFactor, buoy.coords[1] + expansionFactor], // Top right
           [buoy.coords[0] + expansionFactor, buoy.coords[1] - expansionFactor], // Bottom right
@@ -304,7 +304,7 @@
           color: iconColor,
           fillColor: iconColor,
           fillOpacity: 0.7,
-          radius: 8,
+          radius: 24,
         })
           .bindPopup(`<b>${activity.name}</b><br>Type: ${activity.type}`)
           .addTo(activityLayer);
