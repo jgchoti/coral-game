@@ -22,14 +22,14 @@
         margin-bottom: 20px;
       }
       #feedbackText {
-        width: 100%; /* Make the textarea responsive */
-        max-width: 600px; /* Limit the maximum width */
-        min-height: 100px; /* Set a minimum height */
-        margin-bottom: 20px; /* Add some space below the textarea */
-        padding: 10px; /* Add padding for better text readability */
-        border: 1px solid #ccc; /* Add a border */
-        border-radius: 5px; /* Add rounded corners */
-        font-size: 16px; /* Set a comfortable font size */
+        width: 100%;
+        max-width: 600px;
+        min-height: 100px;
+        margin-bottom: 20px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
       }
       #submitBtn {
         display: inline-block;
@@ -44,6 +44,12 @@
       }
       #submitBtn:hover {
         background-color: #b9e5e8;
+      }
+      #thankYouMessage {
+        display: none;
+        margin-top: 20px;
+        font-size: 18px;
+        color: #4a628a;
       }
       a {
         display: inline-block;
@@ -63,18 +69,25 @@
   </head>
   <body>
     <h2>Share Your Feedback!</h2>
-    <p>Please let us know your thoughts about the game.</p>
+    <p id="pText">Please let us know your thoughts about the game.</p>
     <textarea id="feedbackText" placeholder="Share your thoughts..."></textarea>
     <button id="submitBtn">Submit Feedback</button>
+    <div id="thankYouMessage">Thank you for your feedback!</div>
     <a href="https://coral-game.netlify.app/result" target="_self"
       >📊 Check Other Players Results</a
+    >
+    <a
+      href="https://coral-game.netlify.app/map"
+      target="_blank"
+      class="feedback"
+      >🚀 Explore Dashboard Demo</a
     >
     <a href="https://coral-game.netlify.app/" target="_self">⏯️ Play Again</a>
 
     <script>
       function sendResults(feedbackText) {
         const data = {
-          playerFeedback: feedbackText, // Only send feedback
+          playerFeedback: feedbackText,
         };
 
         fetch(
@@ -90,8 +103,12 @@
           .then((response) => response.json())
           .then((result) => {
             if (result.status === "success") {
-              alert("Thank you for your feedback!");
-              window.location.href = "https://coral-game.netlify.app/";
+              // Show thank you message and hide feedback elements
+              document.getElementById("pText").style.display = "none";
+              document.getElementById("feedbackText").style.display = "none";
+              document.getElementById("submitBtn").style.display = "none";
+              document.getElementById("thankYouMessage").style.display =
+                "block";
             } else {
               alert("There was an error submitting your feedback.");
             }
