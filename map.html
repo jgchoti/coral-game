@@ -179,7 +179,7 @@
       const smartBuoys = [
         {
           name: "Buoy 1",
-          coords: [10.1, 99.77], // Covers Reef 1 and nearby activities
+          coords: [10.12, 99.74], // Covers Reef 1 and nearby activities
           waterTemp: 29,
           phLevel: 8.0,
           pollution: 4,
@@ -193,7 +193,7 @@
         },
         {
           name: "Buoy 3",
-          coords: [10.15, 99.75], // Covers Reef 3 and Reef 9
+          coords: [10.18, 99.8], // Covers Reef 3 and Reef 9
           waterTemp: 30,
           phLevel: 7.6,
           pollution: 9,
@@ -214,7 +214,7 @@
         },
         {
           name: "Buoy 6",
-          coords: [10.18, 99.76], // Covers Reef 7 and near Reef 6
+          coords: [10.18, 99.74], // Covers Reef 7 and near Reef 6
           waterTemp: 29,
           phLevel: 7.8,
           pollution: 5,
@@ -248,7 +248,7 @@
       }
       // Create Zoning Polygon
       function createZoningPolygon(buoy) {
-        const expansionFactor = 0.02; // Expansion factor for the zone
+        const expansionFactor = 0.03; // Expansion factor for the zone
         const expandedZone = [
           [buoy.coords[0] + expansionFactor, buoy.coords[1] + expansionFactor], // Top right
           [buoy.coords[0] + expansionFactor, buoy.coords[1] - expansionFactor], // Bottom right
