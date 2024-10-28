@@ -7,7 +7,7 @@ an interactive game developed using Twine.
 - Multiple endings based on player choices
 - **Results Page**: Displays player results in result.html with graphs generated from Google Sheets data.
 - **Demo Map**: Showcases a demo map in map.html 
-- **Feedback Submission**: Players can submit feedback, which is recorded in Google Sheets for further analysis.
+- **Feedback Submission**: Players can submit feedback, which is recorded in Google Sheets.
 
 ## Technologies Used
 - HTML5
