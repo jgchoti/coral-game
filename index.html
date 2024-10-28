@@ -72,7 +72,7 @@ You&#39;ll need to meet with the stakeholders, particularly the **Government Off
 [[&gt;Talk to Environmental NGOs -&gt;NGOs]]</tw-passagedata><tw-passagedata pid="5" name="Government Officials" tags="" position="75,475" size="100,100">
 You meet with the Government Officials, who are responsible for setting policies and regulations around marine protected areas. 
 
-&lt;img src=&quot;./gov.png&quot; alt=&quot;No Data Found&quot; style=&quot;display: block; margin: 0 auto; width:100%; max-width:400px;&quot;&gt;
+&lt;img src=&quot;./assets/images/gov.png&quot; alt=&quot;No Data Found&quot; style=&quot;display: block; margin: 0 auto; width:100%; max-width:400px;&quot;&gt;
 
 &#39;&#39;Government Officials&#39;&#39;: The priority is ensuring biodiversity while maintaining economic stability.
 
@@ -97,7 +97,7 @@ The buoys have been deployed, and real-time data is coming in. You can now view 
 [[&gt;Strategy Selection -&gt;StrategySelection]]</tw-passagedata><tw-passagedata pid="8" name="TourismIndustry" tags="" position="50,950" size="100,100">(if: $gov)[
 With the government’s policy guidance in place, you now meet with the Tourism Industry Leaders. They are deeply concerned about how closing tourist areas could impact their revenue but understand the need to maintain healthy coral reefs for sustainable tourism.
 
-&lt;img src=&quot;./tourism.png&quot; alt=&quot;No Data Found&quot; style=&quot;display: block; margin: 0 auto; width:100%; max-width:400px;&quot;&gt;
+&lt;img src=&quot;./assets/images/tourism.png&quot; alt=&quot;No Data Found&quot; style=&quot;display: block; margin: 0 auto; width:100%; max-width:400px;&quot;&gt;
 
 **Tourism Leader**: &quot;If we close down these zones for too long, we&#39;ll lose millions. Can we find a balance that keeps our dive tours open without causing too much damage?&quot;
 
@@ -111,7 +111,7 @@ Unfortunately, your efforts to collaborate with the tourism industry have not be
 </tw-passagedata><tw-passagedata pid="9" name="FishingIndustry" tags="" position="50,1075" size="100,100">(if: $gov)[
 With the government’s policy guidance in place, you meet with representatives from the fishing industry, who depend on healthy coral reefs for sustainable fish populations. They express concerns that restrictions on fishing zones could jeopardize their livelihoods.
 
-&lt;img src=&quot;./fishing.png&quot; alt=&quot;No Data Found&quot; style=&quot;display: block; margin: 0 auto; width:100%; max-width:400px;&quot;&gt;
+&lt;img src=&quot;./assets/images/fishing.png&quot; alt=&quot;No Data Found&quot; style=&quot;display: block; margin: 0 auto; width:100%; max-width:400px;&quot;&gt;
 
 **Fishing Representative**: &quot;We understand the need for conservation, but we can’t afford to lose access to critical fishing areas. What can you do to ensure both our industry and the reef survive?&quot;
 
@@ -124,7 +124,7 @@ Unfortunately, your attempts to collaborate with the fishing industry have not b
 </tw-passagedata><tw-passagedata pid="10" name="NGOs" tags="" position="175,850" size="100,100">The NGOs are less concerned with short-term economics and more focused on long-term coral recovery. They are pushing for stricter protection measures.
 
 
-&lt;img src=&quot;./ngo.png&quot; alt=&quot;No Data Found&quot; style=&quot;display: block; margin: 0 auto; width:100%; max-width:400px;&quot;&gt;
+&lt;img src=&quot;./assets/images/ngo.png&quot; alt=&quot;No Data Found&quot; style=&quot;display: block; margin: 0 auto; width:100%; max-width:400px;&quot;&gt;
 
 **NGO Leader**: &quot;The reefs are on the brink of collapse. We need to act now and reduce all human activity in these areas for recovery.&quot;
 
@@ -249,7 +249,7 @@ The reefs have not only survived but thrived under your management. Your strateg
     **Ending: A Brighter Future for Coral Reefs** 
     (set: $ending to &quot;A Brighter Future&quot;)
     
-&lt;img src=&quot;./1-best-outcome.jpg&quot; alt=&quot;A Brighter Future&quot; style=&quot;width:100%; max-width:600px;&quot;&gt;
+&lt;img src=&quot;./assets/images/1-best-outcome.jpg&quot; style=&quot;width:100%; max-width:600px;&quot;&gt;
 ]
 
 (else-if: $CoralHealth &gt;= 60 and $EconomicStability &gt;= 50 and $HumanActivityImpact &lt;= 40)[
@@ -258,7 +258,7 @@ You managed to strike a balance between conservation and human interests. While 
     **Ending: A Balanced Recovery**
     (set: $ending to &quot;A Balanced Recovery&quot;)
     
-&lt;img src=&quot;./2-balance.jpg&quot; alt=&quot;A Balanced Recovery&quot; style=&quot;width:100%; max-width:600px;&quot;&gt;
+&lt;img src=&quot;./assets/images/2-balance.jpg&quot; alt=&quot;A Balanced Recovery&quot; style=&quot;width:100%; max-width:600px;&quot;&gt;
 ]
 
 (else-if: $CoralHealth &gt;= 60 and $HumanActivityImpact &gt; 50)[
@@ -267,7 +267,7 @@ Despite your efforts to maintain coral health, the high level of human activity 
     **Ending: An Illusion of Stability**
     (set: $ending to &quot;An Illusion of Stability&quot;)
     
-    &lt;img src=&quot;./6-illusion.webp&quot; alt=&quot;A Human Impact Crisis&quot; style=&quot;width:100%; max-width:600px;&quot;&gt;
+    &lt;img src=./assets/images/6-illusion.webp&quot; alt=&quot;A Human Impact Crisis&quot; style=&quot;width:100%; max-width:600px;&quot;&gt;
 ]
 
 (else-if: $CoralHealth &lt;= 60 and $EconomicStability &gt; 50)[
@@ -276,7 +276,7 @@ Your priority on maintaining economic growth came at the expense of coral health
     **Ending: An Economic Success, but an Ecological Disaster**
     (set: $ending to &quot;An Economic Success, but an Ecological Disaster&quot;)
     
-&lt;img src=&quot;./3-coral-suffer.jpeg&quot; alt=&quot;An Economic Success, but an Ecological Disaster&quot; style=&quot;width:100%; max-width:600px;&quot;&gt;
+&lt;img src=&quot;./assets/images/3-coral-suffer.jpeg&quot; alt=&quot;An Economic Success, but an Ecological Disaster&quot; style=&quot;width:100%; max-width:600px;&quot;&gt;
 ]
 
 (else-if: $CoralHealth &gt; 60 and $EconomicStability &lt;= 50)[
@@ -285,7 +285,7 @@ Your aggressive conservation efforts saved the coral reefs, but the cost was hig
     **Ending: Coral Thrives, Economy Struggles**
     (set: $ending to &quot;Coral Thrives, Economy Struggles&quot;)
     
-&lt;img src=&quot;./4-economy-struggles.jpeg&quot; alt=&quot;Coral Thrives, Economy Struggles&quot; style=&quot;width:100%; max-width:600px;&quot;&gt;
+&lt;img src=&quot;./assets/images/4-economy-struggles.jpeg&quot; alt=&quot;Coral Thrives, Economy Struggles&quot; style=&quot;width:100%; max-width:600px;&quot;&gt;
 ]
 (else:)[
 Unfortunately, your decisions were not enough to save the coral reefs. Widespread bleaching and damage have occurred, and both the economy and coral ecosystems have suffered as a result. The reefs are in a critical state and may take decades to recover due to climate change.
@@ -293,7 +293,7 @@ Unfortunately, your decisions were not enough to save the coral reefs. Widesprea
     **Ending: A Coral Collapse**
      (set: $ending to &quot;A Coral Collapse&quot;)
     
-&lt;img src=&quot;./5-coral-collapse.webp&quot; alt=&quot;A Coral Collapse&quot; style=&quot;width:100%; max-width:600px;&quot;&gt;
+&lt;img src=&quot;./assets/images/5-coral-collapse.webp&quot; alt=&quot;A Coral Collapse&quot; style=&quot;width:100%; max-width:600px;&quot;&gt;
 ]
 [[⏯️ Play Again -&gt;Introduction]]
 
@@ -304,6 +304,10 @@ font-weight: bold;text-decoration: none;&quot;&gt;📊 See How Your Ending Compa
 
 &lt;a href=&quot;https://coral-game.netlify.app/feedback&quot; target=&quot;_blank&quot; style=&quot;color: #B9E5E8; font-weight: bold; text-decoration: none;&quot;&gt;❓Share Your Thoughts&lt;/a&gt;
 
+
+
+This game was crafted with &lt;a href=&quot;https://twinery.org/&quot; target=&quot;_blank&quot; style=&quot;color: #B9E5E8; font-weight: bold; text-decoration: none;&quot;&gt;Twine&lt;/a&gt; 🎮✨ Check out &lt;a href=&quot;https://github.com/jgchoti/coral-game&quot; target=&quot;_blank&quot; style=&quot;color: #B9E5E8; font-weight: bold; text-decoration: none;&quot;&gt;GitHub repo&lt;/a&gt;!
+ 
 &lt;script&gt;
     sendResults(); // Automatically trigger the sendResults function
 &lt;/script&gt;
@@ -315,7 +319,7 @@ font-weight: bold;text-decoration: none;&quot;&gt;📊 See How Your Ending Compa
 
 Current data from the reef monitoring system:
 
-&lt;img src=&quot;./dashboard.jpeg&quot; style=&quot;width:100%; max-width:400px;&quot;&gt;
+&lt;img src=&quot;./assets/images/dashboard.jpeg&quot; style=&quot;width:100%; max-width:400px;&quot;&gt;
 
 - **Temperature**: 29°C (increasing trend)  
 - **pH Level**: 7.8 (acidifying)
