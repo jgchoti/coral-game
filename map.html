@@ -11,44 +11,62 @@
     <style>
       body {
         font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
       }
+
       #map {
         height: 500px;
         margin-top: 10px;
       }
+
       #chartContainer {
-        width: 100%;
-        margin: 10px auto;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+        flex-wrap: wrap;
       }
+
+      .chart {
+        flex: 1;
+        min-width: 300px;
+        margin: 0 10px;
+        max-width: 600px;
+        max-height: 300px;
+        margin-top: 45px;
+      }
+
       .marker-icon {
         width: 20px;
         height: 20px;
         border-radius: 50%;
       }
-      .buoy-icon {
-        background-color: red;
-      }
+
       #legend {
         background: white;
         padding: 10px;
         border-radius: 5px;
       }
-      .activity-icon {
-        width: 25px;
-        height: 25px;
-        border-radius: 50%;
-        display: inline-block;
-        margin-right: 5px;
+      @media (max-width: 500px) {
+        .chart {
+          max-height: 300px;
+        }
       }
     </style>
   </head>
   <body>
     <div id="legend">
+      <h3>Coral Health & Zoning Dashboard</h3>
       <p>
         <b>Disclaimer:</b> The data in this dashboard is fictional and for
         demonstration purposes only.
       </p>
-      <h3>Coral Health & Zoning Dashboard</h3>
+
+      <div id="chartContainer">
+        <canvas id="waterQualityChart" class="chart"></canvas>
+        <canvas id="coralHealthTrendsChart" class="chart"></canvas>
+      </div>
+
       <div style="display: flex; justify-content: space-between">
         <div style="flex: 1; margin-right: 10px">
           <h4>Coral Health</h4>
@@ -105,13 +123,16 @@
           </p>
         </div>
       </div>
+      <p>
+        To use this map, click the <b>layer icon</b> to toggle layers, view
+        coral health status by clicking markers, and zoom in/out with “+” and
+        “-” buttons. For more information
+      </p>
+      <div id="map"></div>
     </div>
-
-    <div id="chartContainer">
-      <canvas id="waterQualityChart" width="400" height="200"></canvas>
-    </div>
-
-    <div id="map"></div>
+    <script src="./data/humanActivitiesData.js"></script>
+    <script src="./data/coralReefsData.js"></script>
+    <script src="./data/smartBuoysData.js"></script>
     <script>
       // Initialize Map
       var map = L.map("map").setView([10.1, 99.8], 10);
@@ -126,25 +147,19 @@
         popupAnchor: [1, -34],
       });
 
+      const alertIcon = L.icon({
+        iconUrl: "./alert.png",
+        iconSize: [30, 30],
+        iconAnchor: [15, 30],
+        popupAnchor: [1, -34],
+      });
+
       // Create Layer Groups
       const coralHealthLayer = L.layerGroup();
       const zoningLayer = L.layerGroup();
       const activityLayer = L.layerGroup();
       const buoyLayer = L.layerGroup().addTo(map);
-
-      // Coral Reefs Data
-      const coralReefs = [
-        { name: "Reef 1", coords: [10.1, 99.8], health: 0.9 }, // Excellent Health
-        { name: "Reef 2", coords: [10.05, 99.85], health: 0.5 }, // Moderate Health
-        { name: "Reef 3", coords: [10.18, 99.74], health: 0.3 }, // Poor Health
-        { name: "Reef 4", coords: [10.2, 99.8], health: 0.1 }, // Very Poor Health
-        { name: "Reef 5", coords: [10.12, 99.85], health: 0.7 }, // Good Health
-        { name: "Reef 6", coords: [10.08, 99.88], health: 0.4 }, // Moderate Health
-        { name: "Reef 7", coords: [10.18, 99.83], health: 0.2 }, // Poor Health
-        { name: "Reef 8", coords: [10.22, 99.75], health: 0.8 }, // Excellent Health
-        { name: "Reef 9", coords: [10.14, 99.76], health: 0.6 }, // Good Health
-        { name: "Reef 10", coords: [10.16, 99.79], health: 0.15 }, // Very Poor Health
-      ];
+      const alertLayer = L.layerGroup().addTo(map);
 
       // Add coral reefs to the coralHealthLayer
       coralReefs.forEach((reef) => {
@@ -169,75 +184,29 @@
             `<b>${reef.name}</b><br>Health: ${(reef.health * 100).toFixed(1)}%`
           )
           .addTo(coralHealthLayer);
+        if (reef.health < 0.2) {
+          const alertMarker = L.marker(reef.coords, { icon: alertIcon })
+            .bindPopup(
+              `<b>ALERT: ${reef.name}</b><br>Critical Conditions Detected`
+            )
+            .addTo(alertLayer);
+        }
       });
 
-      // Heatmap Layer for Coral Health
-      const heatData = coralReefs.map((reef) => [
-        reef.coords[0],
-        reef.coords[1],
-        reef.health,
-      ]);
-      const heatLayer = L.heatLayer(heatData, { radius: 100, blur: 15 });
-
       // AI-Suggested Zoning
-      const smartBuoys = [
-        {
-          name: "Buoy 1",
-          coords: [10.14, 99.71],
-          waterTemp: 29,
-          phLevel: 8.0,
-          pollution: 4,
-        },
-        {
-          name: "Buoy 2",
-          coords: [10.02, 99.84],
-          waterTemp: 28,
-          phLevel: 7.9,
-          pollution: 3,
-        },
-        {
-          name: "Buoy 3",
-          coords: [10.18, 99.83],
-          waterTemp: 30,
-          phLevel: 7.6,
-          pollution: 9,
-        },
-        {
-          name: "Buoy 4",
-          coords: [10.3, 99.9],
-          waterTemp: 27,
-          phLevel: 8.1,
-          pollution: 2,
-        },
-        {
-          name: "Buoy 5",
-          coords: [10.11, 99.96],
-          waterTemp: 26,
-          phLevel: 8.2,
-          pollution: 3,
-        },
-        {
-          name: "Buoy 6",
-          coords: [10.3, 99.74],
-          waterTemp: 29,
-          phLevel: 7.8,
-          pollution: 5,
-        },
-        {
-          name: "Buoy 7",
-          coords: [10.3, 99.74],
-          waterTemp: 27,
-          phLevel: 8.0,
-          pollution: 4,
-        },
-      ];
-
       smartBuoys.forEach((buoy) => {
         L.marker(buoy.coords, { icon: buoyIcon })
           .bindPopup(
             `<b>${buoy.name}</b><br>Water Temp: ${buoy.waterTemp}°C<br>pH Level: ${buoy.phLevel}<br>Pollution: ${buoy.pollution}`
           )
           .addTo(buoyLayer);
+        if (buoy.pollution > 5 || buoy.pH < 7.5) {
+          const alertMarker = L.marker(buoy.coords, { icon: alertIcon })
+            .bindPopup(
+              `<b>ALERT: ${buoy.name}</b><br>Critical Conditions Detected`
+            )
+            .addTo(alertLayer);
+        }
       });
 
       // Function to suggest Human Activity Zone with priority
@@ -289,28 +258,28 @@
       // Create Zoning Layer
       smartBuoys.forEach(createZoningPolygon);
 
-      // Human Activity Data
-      const humanActivities = [
-        { name: "Tourism Spot", coords: [10.1, 99.75], type: "tourism" },
-        { name: "Fishing Area", coords: [10.15, 99.85], type: "fishing" },
-        { name: "Popular Dive Site", coords: [10.0, 99.8], type: "tourism" },
-        { name: "Fishing Zone", coords: [10.2, 99.9], type: "fishing" },
-      ];
-
-      // Add human activities to the activityLayer
-      humanActivities.forEach((activity) => {
-        const iconColor = activity.type === "tourism" ? "blue" : "orange";
-        L.circleMarker(activity.coords, {
-          color: iconColor,
-          fillColor: iconColor,
-          fillOpacity: 0.7,
-          radius: 24,
-        })
-          .bindPopup(`<b>${activity.name}</b><br>Type: ${activity.type}`)
-          .addTo(activityLayer);
+      // Prepare heatmap data: [lat, lng, intensity]
+      const heatData = smartBuoys.map((buoy) => {
+        const normalizedTemp = (buoy.waterTemp - 25) / (30 - 25);
+        return [buoy.coords[0], buoy.coords[1], normalizedTemp];
       });
 
+      // Create a single heatmap layer
+      const heatLayer = L.heatLayer(heatData, {
+        radius: 100,
+        blur: 1,
+        gradient: {
+          0: "rgba(0, 0, 255, 1)",
+          0.4: "rgba(0, 255, 255, 1)",
+          0.6: "rgba(255, 165, 0, 1)",
+          0.8: "rgba(255, 140, 0, 1)",
+          1.0: "rgba(255, 0, 0, 1)",
+        },
+      }).addTo(map);
+      console.log(heatData);
+
       // Add all layers to the map
+      alertLayer.addTo(map);
       coralHealthLayer.addTo(map);
       zoningLayer.addTo(map);
       activityLayer.addTo(map);
@@ -320,6 +289,7 @@
       // Create Layer Control
       const baseLayers = {};
       const overlays = {
+        "Alert from system": alertLayer,
         "Coral Health": coralHealthLayer,
         Zoning: zoningLayer,
         "Human Activities": activityLayer,
@@ -382,6 +352,113 @@
           plugins: {
             legend: {
               display: true,
+            },
+          },
+        },
+      });
+
+      // Chart for coral health and economic data over time (example values)
+      const coralHealthTrends = [85, 80, 78, 76, 73, 70, 68, 65, 63, 60];
+      const tourismRevenue = [
+        1200, 1150, 1100, 1050, 1000, 950, 920, 900, 870, 850,
+      ];
+      const fishingRevenue = [
+        800, 900, 700, 1200, 1000, 600, 700, 800, 570, 550,
+      ]; // in $ thousands
+
+      // Labels for each time point
+      const timeLabels = [
+        "Year 1",
+        "Year 2",
+        "Year 3",
+        "Year 4",
+        "Year 5",
+        "Year 6",
+        "Year 7",
+        "Year 8",
+        "Year 9",
+        "Year 10",
+      ];
+
+      // Chart.js setup for trends chart
+      var coralHealthTrendsCtx = document
+        .getElementById("coralHealthTrendsChart")
+        .getContext("2d");
+
+      var coralHealthTrendsChart = new Chart(coralHealthTrendsCtx, {
+        type: "line",
+        data: {
+          labels: timeLabels,
+          datasets: [
+            {
+              label: "Coral Health (%)",
+              data: coralHealthTrends,
+              borderColor: "rgba(54, 162, 235, 1)",
+              backgroundColor: "rgba(54, 162, 235, 0.2)",
+              borderWidth: 2,
+              yAxisID: "y",
+            },
+            {
+              label: "Tourism Revenue ($ Thousands)",
+              data: tourismRevenue,
+              borderColor: "rgba(255, 206, 86, 1)",
+              backgroundColor: "rgba(255, 206, 86, 0.2)",
+              borderWidth: 2,
+              yAxisID: "y1",
+            },
+            {
+              label: "Fishing Revenue ($ Thousands)",
+              data: fishingRevenue,
+              borderColor: "rgba(249, 84, 84, 1)",
+              backgroundColor: "rgba(249, 84, 84, 0.2)",
+              borderWidth: 2,
+              yAxisID: "y1",
+            },
+          ],
+        },
+        options: {
+          responsive: true, // Make the chart responsive
+          scales: {
+            y: {
+              beginAtZero: true,
+              position: "left",
+              title: {
+                display: true,
+                text: "Coral Health (%)",
+              },
+              grid: {
+                drawOnChartArea: true, // Add grid lines
+              },
+            },
+            y1: {
+              beginAtZero: true,
+              position: "right",
+              title: {
+                display: true,
+                text: "Revenue ($ Thousands)",
+              },
+              grid: {
+                drawOnChartArea: false,
+              },
+            },
+
+            x: {
+              title: {
+                display: true,
+                text: "Years",
+              },
+              grid: {
+                drawOnChartArea: true,
+              },
+            },
+          },
+          plugins: {
+            legend: {
+              display: true,
+              position: "top",
+              labels: {
+                boxHeight: 10, // Adjust legend box height
+              },
             },
           },
         },
