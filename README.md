@@ -10,11 +10,11 @@ an interactive game developed using Twine.
 - **Feedback Submission**: Players can submit feedback, which is recorded in Google Sheets for further analysis.
 
 ## Technologies Used
+- HTML5
+- CSS3
+- JavaScript
+- [Twine](https://twinery.org/) - A tool for telling interactive, nonlinear stories
 
-[Twine](https://twinery.org/) - A tool for telling interactive, nonlinear stories
-HTML5
-CSS3
-JavaScript 
 
 ## Google Sheets Integration
 
