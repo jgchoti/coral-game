@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game Feedback</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f9f9f9;
+        margin: 0;
+        padding: 20px;
+      }
+      h2 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 20px;
+      }
+      #feedbackText {
+        width: 100%;
+        max-width: 600px;
+        min-height: 100px;
+        margin-bottom: 20px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+      #submitBtn {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: #4a628a;
+        color: white;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      #submitBtn:hover {
+        background-color: #b9e5e8;
+      }
+      #thankYouMessage {
+        display: none;
+        margin-top: 20px;
+        font-size: 18px;
+        color: #4a628a;
+      }
+      a {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: #b9e5e8;
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+      }
+      a:hover {
+        background-color: #4a628a;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Share Your Feedback!</h2>
+    <p id="pText">Please let us know your thoughts about the game.</p>
+    <textarea id="feedbackText" placeholder="Share your thoughts..."></textarea>
+    <button id="submitBtn">Submit Feedback</button>
+    <div id="thankYouMessage">Thank you for your feedback!</div>
+    <a href="https://coral-game.netlify.app/" target="_self">⏯️ Play Again</a>
+    <a href="https://coral-game.netlify.app/result" target="_self"
+      >📊 Check Other Players Results</a
+    >
+    <a
+      href="https://coral-game.netlify.app/map"
+      target="_blank"
+      class="feedback"
+      >🚀 Explore Dashboard Demo</a
+    >
+
+    <script>
+      function sendResults(feedbackText) {
+        const data = {
+          playerFeedback: feedbackText,
+        };
+
+        fetch(
+          "https://script.google.com/macros/s/AKfycbxCeVntqTz9l_YxXLV-a395X6Jb8uphvj-wu1MAmPF3V90XXgPiDg5cfreGbU-cXSoT/exec",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: new URLSearchParams(data),
+          }
+        )
+          .then((response) => response.json())
+          .then((result) => {
+            if (result.status === "success") {
+              // Show thank you message and hide feedback elements
+              document.getElementById("pText").style.display = "none";
+              document.getElementById("feedbackText").style.display = "none";
+              document.getElementById("submitBtn").style.display = "none";
+              document.getElementById("thankYouMessage").style.display =
+                "block";
+            } else {
+              alert("There was an error submitting your feedback.");
+            }
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+            alert("An error occurred while sending feedback.");
+          });
+      }
+
+      function submitFeedback() {
+        var feedbackText = document.getElementById("feedbackText").value;
+        if (feedbackText.trim() === "") {
+          alert("Please enter your feedback before submitting.");
+          return;
+        }
+        sendResults(feedbackText);
+      }
+
+      document
+        .getElementById("submitBtn")
+        .addEventListener("click", submitFeedback);
+    </script>
+  </body>
+</html>
