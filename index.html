@@ -9,8 +9,14 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play CoralReef.</tw-noscript></noscript></tw-story>
-<tw-storydata name="CoralReef" startnode="1" creator="Twine" creator-version="2.9.2" format="Harlowe" format-version="3.3.9" ifid="F06FAEED-28B6-4D16-BE00-CB70483229AF" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* Coral Health Color */
+<tw-storydata name="CoralReef" startnode="1" creator="Twine" creator-version="2.9.2" format="Harlowe" format-version="3.3.9" ifid="F06FAEED-28B6-4D16-BE00-CB70483229AF" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">progress {
+    width: 300px; /* Set the width of the progress bar */
+    height: 20px; /* Set the height of the progress bar */
+}
+
+/* Coral Health Color */
 #coralHealth {
+    appearance: none; /* Remove default styling */
     background-color: #ddd; /* Background color for the progress bar */
 }
 
@@ -24,6 +30,7 @@
 
 /* Human Activity Impact Color */
 #humanActivityImpact {
+    appearance: none; /* Remove default styling */
     background-color: #ddd; /* Background color for the progress bar */
 }
 
@@ -36,7 +43,8 @@
 }
 
 /* Economic Stability Color */
-#economicStability { 
+#economicStability {
+    appearance: none; /* Remove default styling */
     background-color: #ddd; /* Background color for the progress bar */
 }
 
@@ -246,6 +254,16 @@ You have access to the following strategies:
 - &#39;&#39;Zoning&#39;&#39;: Establish Marine Protected Areas (MPAs) with limited or prohibited human activity to allow coral reefs to recover.
 - &#39;&#39;Deploy Heat-Tolerant Corals&#39;&#39;: Introduce coral species resilient to high temperatures to help reefs endure warmer waters.
 - &#39;&#39;Plant Seagrass Beds and Kelp Forests&#39;&#39;: Enhance ecosystem health and CO2 absorption by planting seagrass and kelp, supporting coral reef resilience.
+]
+
+(if: $CoralHealth &gt; 100)[
+    (set: $CoralHealth to $maxCoralHealth)
+]
+(if: $HumanActivityImpact &gt; 100)[
+    (set: $HumanActivityImpact to $maxHumanImpact)
+]
+(if: $EconomicStability &gt; 100)[
+    (set: $EconomicStability to $maxEconomicStability)
 ]</tw-passagedata><tw-passagedata pid="13" name="Endgame" tags="" position="1400,200" size="100,100">After several years of managing coral reef health, it&#39;s time to review the results of your strategy.
 
 [[&gt;Review Results -&gt;FinalResults]]
@@ -329,7 +347,7 @@ Despite your efforts to maintain coral health, the high level of human activity 
 ### Ending: An Illusion of Stability
  (set: $ending to &quot;An Illusion of Stability&quot;)
  &lt;br/&gt; 
-&lt;img src=./assets/images/6-illusion.webp&quot; alt=&quot;A Human Impact Crisis&quot; style=&quot;width:100%; max-width:600px;&quot;&gt;
+&lt;img src=&quot;./assets/images/6-illusion.webp&quot; alt=&quot;A Human Impact Crisis&quot; style=&quot;width:100%; max-width:600px;&quot;&gt;
 &lt;br/&gt;
 ]
 (else-if: $CoralHealth &lt;= 60 and $EconomicStability &gt; 50)[
@@ -510,11 +528,11 @@ Current data from the reef monitoring system:
 Current data from the reef monitoring system:
 (set: $action5Done to true)
 ---
-**🪸 Coral Health**: (print: &#39;&lt;progress id=&quot;coralHealth&quot; value=&quot;&#39; + (text: $CoralHealth) + &#39;&quot; max=&quot;&#39; + (text: $maxCoralHealth) + &#39;&quot;&gt;&lt;/progress&gt;&#39;) (print: $CoralHealth)%
+**🪸 Coral Health**: (print: &#39;&lt;progress id=&quot;coralHealth&quot; value=&quot;&#39; + (text: $CoralHealth) + &#39;&quot; max=&quot;100&quot;&gt;&lt;/progress&gt;&#39;) (print: $CoralHealth)%
 &lt;br/&gt;
-**🌍  Human Activity Impact**: (print: &#39;&lt;progress id=&quot;humanActivityImpact&quot; value=&quot;&#39; + (text: $HumanActivityImpact) + &#39;&quot; max=&quot;&#39; + (text: $maxHumanImpact) + &#39;&quot;&gt;&lt;/progress&gt;&#39;)  (print: $HumanActivityImpact)%
+**🌍 Human Activity Impact**: (print: &#39;&lt;progress id=&quot;humanImpact&quot; value=&quot;&#39; + (text: $HumanActivityImpact) + &#39;&quot; max=&quot;100&quot;&gt;&lt;/progress&gt;&#39;) (print: $HumanActivityImpact)%
 &lt;br/&gt;
-**💰 Economic Stability**: (print: &#39;&lt;progress id=&quot;economicStability&quot; value=&quot;&#39; + (text: $EconomicStability) + &#39;&quot; max=&quot;&#39; + (text: $maxEconomicStability) + &#39;&quot;&gt;&lt;/progress&gt;&#39;)  (print: $EconomicStability)%
+**💰 Economic Stability**: (print: &#39;&lt;progress id=&quot;economicStability&quot; value=&quot;&#39; + (text: $EconomicStability) + &#39;&quot; max=&quot;100&quot;&gt;&lt;/progress&gt;&#39;) (print: $EconomicStability)%
 &lt;br/&gt;
 ---
 
