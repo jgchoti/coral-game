@@ -317,7 +317,7 @@ Unfortunately, you cannot plant heat-tolerant corals without first zoning the ar
 </tw-passagedata><tw-passagedata pid="17" name="FinalResults" tags="" position="1675,225" size="100,100">##FinalResults
 
 **🪸 Coral Health**: (print: &#39;&lt;progress id=&quot;coralHealth&quot; value=&quot;&#39; + (text: $CoralHealth) + &#39;&quot; max=&quot;&#39; + (text: $maxCoralHealth) + &#39;&quot;&gt;&lt;/progress&gt;&#39;) (print: $CoralHealth)%
-**🌍  Human Activity Impact**: (print: &#39;&lt;progress id=&quot;humanActivityImpact&quot; value=&quot;&#39; + (text: $HumanActivityImpact) + &#39;&quot; max=&quot;&#39; + (text: $maxHumanImpact) + &#39;&quot;&gt;&lt;/progress&gt;&#39;)  (print: $HumanActivityImpact)%
+**🌍  Human Activity Impact**: (print: &#39;&lt;progress id=&quot;humanImpact&quot; value=&quot;&#39; + (text: $HumanActivityImpact) + &#39;&quot; max=&quot;&#39; + (text: $maxHumanImpact) + &#39;&quot;&gt;&lt;/progress&gt;&#39;)  (print: $HumanActivityImpact)%
 **💰 Economic Stability**: (print: &#39;&lt;progress id=&quot;economicStability&quot; value=&quot;&#39; + (text: $EconomicStability) + &#39;&quot; max=&quot;&#39; + (text: $maxEconomicStability) + &#39;&quot;&gt;&lt;/progress&gt;&#39;)  (print: $EconomicStability)%
 ---
 {
@@ -537,12 +537,13 @@ Current data from the reef monitoring system:
 Current data from the reef monitoring system:
 (set: $action5Done to true)
 ---
-**🪸 Coral Health**: (print: &#39;&lt;progress id=&quot;coralHealth&quot; value=&quot;&#39; + (text: $CoralHealth) + &#39;&quot; max=&quot;100&quot;&gt;&lt;/progress&gt;&#39;) (print: $CoralHealth)%
-&lt;br/&gt;
-**🌍 Human Activity Impact**: (print: &#39;&lt;progress id=&quot;humanImpact&quot; value=&quot;&#39; + (text: $HumanActivityImpact) + &#39;&quot; max=&quot;100&quot;&gt;&lt;/progress&gt;&#39;) (print: $HumanActivityImpact)%
-&lt;br/&gt;
-**💰 Economic Stability**: (print: &#39;&lt;progress id=&quot;economicStability&quot; value=&quot;&#39; + (text: $EconomicStability) + &#39;&quot; max=&quot;100&quot;&gt;&lt;/progress&gt;&#39;) (print: $EconomicStability)%
-&lt;br/&gt;
+
+**🪸 Coral Health**: (print: &#39;&lt;progress id=&quot;coralHealth&quot; value=&quot;&#39; + (text: $CoralHealth) + &#39;&quot; max=&quot;&#39; + (text: $maxCoralHealth) + &#39;&quot;&gt;&lt;/progress&gt;&#39;) (print: $CoralHealth)%
+
+**🌍  Human Activity Impact**: (print: &#39;&lt;progress id=&quot;humanImpact&quot; value=&quot;&#39; + (text: $HumanActivityImpact) + &#39;&quot; max=&quot;&#39; + (text: $maxHumanImpact) + &#39;&quot;&gt;&lt;/progress&gt;&#39;)  (print: $HumanActivityImpact)%
+
+**💰 Economic Stability**: (print: &#39;&lt;progress id=&quot;economicStability&quot; value=&quot;&#39; + (text: $EconomicStability) + &#39;&quot; max=&quot;&#39; + (text: $maxEconomicStability) + &#39;&quot;&gt;&lt;/progress&gt;&#39;)  (print: $EconomicStability)%
+
 ---
 
 [[&gt;Return to Strategy Selection -&gt;StrategySelection]]
