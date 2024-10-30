@@ -512,9 +512,24 @@ Unfortunately, you cannot plant seagrass and kelp without first zoning the areas
 (if: not $action2Done)[ 
 **🚫 No Data Available:** You need to deploy the buoys to start receiving real-time data from the reef monitoring system.
 ]
-(else:)[
-(set: $checkedStatus to $checkedStatus + 1)
-(set: $action3Done to true)
+(else-if: $action2Done and $strategy )[
+(if: $CoralHealth &gt; 100)[(set: $CoralHealth to $maxCoralHealth)]
+(if: $HumanActivityImpact &gt; 100)[(set: $HumanActivityImpact to $maxHumanImpact)]
+(if: $EconomicStability &gt; 100)[(set: $EconomicStability to $maxEconomicStability)]
+### Reef Status Update 🌊📊
+&lt;br/&gt;
+Current data from the reef monitoring system:
+&lt;br/&gt;
+---
+&lt;br/&gt;
+**🪸 Coral Health**: (print: &#39;&lt;progress id=&quot;coralHealth&quot; value=&quot;&#39; + (text: $CoralHealth) + &#39;&quot; max=&quot;&#39; + (text: $maxCoralHealth) + &#39;&quot;&gt;&lt;/progress&gt;&#39;) (print: $CoralHealth)%
+&lt;br/&gt;
+**🌍  Human Activity Impact**: (print: &#39;&lt;progress id=&quot;humanImpact&quot; value=&quot;&#39; + (text: $HumanActivityImpact) + &#39;&quot; max=&quot;&#39; + (text: $maxHumanImpact) + &#39;&quot;&gt;&lt;/progress&gt;&#39;)  (print: $HumanActivityImpact)%
+&lt;br/&gt;
+**💰 Economic Stability**: (print: &#39;&lt;progress id=&quot;economicStability&quot; value=&quot;&#39; + (text: $EconomicStability) + &#39;&quot; max=&quot;&#39; + (text: $maxEconomicStability) + &#39;&quot;&gt;&lt;/progress&gt;&#39;)  (print: $EconomicStability)%
+&lt;br/&gt;
+---
+](else:)[(set: $action3Done to true)
 (if: $CoralHealth &gt; 100)[(set: $CoralHealth to $maxCoralHealth)]
 (if: $HumanActivityImpact &gt; 100)[(set: $HumanActivityImpact to $maxHumanImpact)]
 (if: $EconomicStability &gt; 100)[(set: $EconomicStability to $maxEconomicStability)]
