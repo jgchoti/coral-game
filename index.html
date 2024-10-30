@@ -341,7 +341,16 @@ You managed to strike a balance between conservation and human interests. While 
 &lt;img src=&quot;./assets/images/2-balance.jpg&quot; alt=&quot;A Balanced Recovery&quot; style=&quot;width:100%; max-width:600px;&quot;&gt;
 &lt;br/&gt;
 ]
-(else-if: $CoralHealth &gt;= 60 and $HumanActivityImpact &gt; 50)[
+(else-if: $CoralHealth &gt;= 60 and $EconomicStability &lt;= 40 and $HumanActivityImpact &gt;= 60)[
+The coral reefs appear to be thriving under your management, but this resilience is misleading. Unchecked human activity, from pollution to overfishing, has left hidden scars on the ecosystem. Compounding this, a lack of economic stability means there are limited resources to safeguard the reefs as they face intensifying climate impacts. With global temperatures rising and oceans warming, this moment of health is fragile—without significant changes, the reefs may soon be overwhelmed.
+&lt;br/&gt;
+### Ending: A Fragile Resilience
+ (set: $ending to &quot;A Fragile Resilience&quot;)
+ &lt;br/&gt; 
+&lt;img src=&quot;./assets/images/7-fragile.webp&quot; alt=&quot;A Human Impact Crisis&quot; style=&quot;width:100%; max-width:600px;&quot;&gt;
+&lt;br/&gt;
+]
+(else-if: $CoralHealth &gt;= 60 and $HumanActivityImpact &gt; 60)[
 Despite your efforts to maintain coral health, the high level of human activity has taken a toll on the reefs. Unregulated tourism, pollution, and overfishing continue to put pressure on these vibrant ecosystems. While the coral may look healthy, the hidden damage is significant. Without immediate action, the long-term survival of the reefs is at risk, especially because of climate change.
 &lt;br/&gt;
 ### Ending: An Illusion of Stability
