@@ -100,7 +100,7 @@ const humanActivities = [
         coords: [-25.8667, 152.6333],
         type: "tourism",
     },
-    { name: "Koh Samui", coords: [9.5128, 100.013], type: "tourism" },
+    { name: "Koh Samui", coords: [9.41, 100.013], type: "tourism" },
     {
         name: "Whitsunday Islands",
         coords: [-20.2766, 148.9004],
