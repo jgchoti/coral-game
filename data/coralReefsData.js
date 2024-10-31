@@ -1,15 +1,15 @@
 
 const coralReefs = [
-    { name: "Reef 1", coords: [10.1, 99.8], health: 0.9 }, // Excellent Health
-    { name: "Reef 2", coords: [10.05, 99.85], health: 0.5 }, // Moderate Health
-    { name: "Reef 3", coords: [10.18, 99.74], health: 0.3 }, // Poor Health
-    { name: "Reef 4", coords: [10.2, 99.8], health: 0.1 }, // Very Poor Health
-    { name: "Reef 5", coords: [10.12, 99.85], health: 0.7 }, // Good Health
-    { name: "Reef 6", coords: [10.08, 99.88], health: 0.4 }, // Moderate Health
-    { name: "Reef 7", coords: [10.18, 99.83], health: 0.2 }, // Poor Health
-    { name: "Reef 8", coords: [10.22, 99.75], health: 0.8 }, // Excellent Health
-    { name: "Reef 9", coords: [10.14, 99.76], health: 0.6 }, // Good Health
-    { name: "Reef 10", coords: [10.16, 99.79], health: 0.15 }, // Very Poor Health
+    { name: "Chumphon Pinnacle", coords: [10.1, 99.8], health: 0.9 }, // Excellent Health
+    { name: "White Rock", coords: [10.05, 99.85], health: 0.5 }, // Moderate Health
+    { name: "Southwest Pinnacle", coords: [10.18, 99.74], health: 0.3 }, // Poor Health
+    { name: "Green Rock", coords: [10.2, 99.8], health: 0.1 }, // Very Poor Health
+    { name: "Twins", coords: [10.12, 99.85], health: 0.7 }, // Good Health
+    { name: "Hin Wong Pinnacle", coords: [10.08, 99.88], health: 0.4 }, // Moderate Health
+    { name: "Shark Island", coords: [10.18, 99.83], health: 0.2 }, // Poor Health
+    { name: "Japanese Gardens", coords: [10.22, 99.75], health: 0.8 }, // Excellent Health
+    { name: "Sail Rock", coords: [10.14, 99.76], health: 0.6 }, // Good Health
+    { name: "Ao Leuk", coords: [10.16, 99.79], health: 0.15 }, // Very Poor Health
     { name: "Great Barrier Reef", coords: [-18.2871, 147.6992], health: 0.9 }, // Excellent Health
     { name: "Belize Barrier Reef", coords: [16.8180, -88.1999], health: 0.85 }, // Excellent Health
     { name: "Red Sea Coral Reef", coords: [27.9000, 34.0000], health: 0.8 }, // Excellent Health
@@ -55,7 +55,7 @@ const coralReefs = [
     { name: "Great Astrolabe Reef", coords: [-17.4333, 178.7667], health: 0.7 }, // Good Health
     { name: "Koh Phi Phi", coords: [7.7439, 98.7668], health: 0.8 }, // Excellent Health
     { name: "Pangkor Island", coords: [4.2414, 100.5564], health: 0.6 }, // Good Health
-    { name: "Koh Samui", coords: [9.5128, 100.0130], health: 0.75 }, // Good Health
+    { name: "Koh Samui", coords: [9.4, 100.0130], health: 0.75 }, // Good Health
     { name: "Truk Lagoon", coords: [7.4000, 151.8667], health: 0.8 }, // Excellent Health
     { name: "Fernando de Noronha", coords: [-3.8511, -32.4236], health: 0.85 }, // Excellent Health
     { name: "Mergui Archipelago", coords: [12.0000, 98.0000], health: 0.65 }, // Good Health
