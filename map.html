@@ -331,10 +331,10 @@
 
       humanActivities.forEach((activity) => {
         let activityIcon;
-        if (activity.type === "tourism") {
-          activityIcon = divingIcon; // Set diving icon
+        if (activity.type === "fishing") {
+          activityIcon = fishingIcon; // Set diving icon
         } else {
-          activityIcon = fishingIcon; // Set fishing icon
+          activityIcon = divingIcon; // Set fishing icon
         }
         L.marker(activity.coords, { icon: activityIcon })
           .bindPopup(`<b>${activity.name}</b><br>Type: ${activity.type}`)
